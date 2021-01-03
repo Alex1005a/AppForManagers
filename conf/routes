@@ -1,0 +1,7 @@
+GET     /                          controllers.HomeController.index
+
+GET     /account/:token            controllers.AccountController.verifyManager(token: String)
+
+POST    /account/create            controllers.AccountController.create
+
+POST    /account/authorize         controllers.AccountController.authorize
