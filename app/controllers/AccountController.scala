@@ -20,14 +20,14 @@ class AccountController @Inject()(cc: ControllerComponents, auth: Authentication
         val m = v.validate[ManagerDto].get
         UnverifiedManager(m.name, m.email, m.password, UUID.randomUUID().toString).fold(
           err => InternalServerError(err),
-          manager => Ok(AccountService.createUser(manager).run(repo))
+          manager => Ok(AccountService.createUser(manager).run(repo).unsafeRunSync())
         )
 
       case Some(v) if v.validate[WorkerDto].isSuccess =>
         val w = v.validate[WorkerDto].get
         Worker(w.name, w.password).fold(
           err => InternalServerError(err),
-          worker => Ok(AccountService.createUser(worker).run(repo))
+          worker => Ok(AccountService.createUser(worker).run(repo).unsafeRunSync())
         )
 
       case Some(_) => InternalServerError("Parse json error")
@@ -37,21 +37,23 @@ class AccountController @Inject()(cc: ControllerComponents, auth: Authentication
   }
 
   def verifyManager(confirmationToken: String): Action[AnyContent] = Action {
-    AccountService.verifyManager(confirmationToken).run(repo).fold(
-      err => InternalServerError(err),
-      res => Ok(res)
-    )
+    AccountService.verifyManager(confirmationToken).run(repo).map { result =>
+      result.fold(
+        err => InternalServerError(err),
+        res => Ok(res)
+      )
+    }.unsafeRunSync()
   }
 
   def authorize: Action[AnyContent] = Action { implicit request =>
     request.body.asJson match {
       case Some(v) if v.validate[ManagerDto].isSuccess =>
         val m = v.validate[ManagerDto].get
-        Ok(serviceAuthorize(m))
+        Ok(serviceAuthorize(m).unsafeRunSync())
 
       case Some(v) if v.validate[WorkerDto].isSuccess =>
         val w = v.validate[WorkerDto].get
-        Ok(serviceAuthorize(w))
+        Ok(serviceAuthorize(w).unsafeRunSync())
 
       case Some(_) => InternalServerError("Parse json error")
 
@@ -59,7 +61,7 @@ class AccountController @Inject()(cc: ControllerComponents, auth: Authentication
     }
   }
 
-  private def serviceAuthorize(dto: AuthDto) =  AccountService.authorize(dto).run(AuthorizeConfig(repo, auth)).fold(c => c, f => f)
+  private def serviceAuthorize(dto: AuthDto) =  AccountService.authorize(dto).run(AuthorizeConfig(repo, auth)).map(_.fold(c => c, f => f))
 }
 
 /*
