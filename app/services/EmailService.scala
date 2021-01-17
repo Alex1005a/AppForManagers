@@ -9,7 +9,7 @@ import javax.mail.internet.{InternetAddress, MimeMessage}
 
 object EmailService {
 
-  private val config = IO { ConfigFactory.load() } .unsafeRunSync()
+  private val config = ConfigFactory.load()
   private val username: String = config.getString("myEmail")
   private val password: String = config.getString("myEmailPassword")
 

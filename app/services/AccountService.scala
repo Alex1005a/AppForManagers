@@ -1,7 +1,7 @@
 package services
 
 import auth.Authentication
-import cats.data.Reader
+import cats.data.Kleisli
 import cats.effect.IO
 import cats.implicits.catsSyntaxEitherId
 import controllers.{AuthDto, ManagerDto, WorkerDto}
@@ -14,19 +14,19 @@ case class AuthorizeConfig(repo: UserRepository, auth: Authentication)
 
 object AccountService {
 
-  def createUser(user: User): Reader[UserRepository, IO[Id]] = {
-    Reader(
-      (repo: UserRepository) => {
-        user match {
-          case u: UnverifiedManager => EmailService.sendEmail(u.email, "http://localhost:9000/account/" + u.confirmationToken, "Subject").unsafeRunSync()
+  def createUser(user: User): Kleisli[IO, UserRepository, Id] = {
+    Kleisli(
+      (repo: UserRepository) => for {
+        _ <- user match {
+          case u: UnverifiedManager => EmailService.sendEmail(u.email, "http://localhost:9000/account/" + u.confirmationToken, "Subject")
         }
-        repo.create(user)
-      }
+        id <- repo.create(user)
+      } yield id
     )
   }
 
-  def verifyManager(confirmationToken: String): Reader[UserRepository, IO[Either[String, String]]] = {
-    Reader(
+  def verifyManager(confirmationToken: String): Kleisli[IO, UserRepository, Either[String, String]] = {
+    Kleisli(
       (repo: UserRepository) => {
         for {
           manager <- repo.getUnverifiedManagerByToken(confirmationToken).value
@@ -46,8 +46,8 @@ object AccountService {
     )
   }
 
-  def authorize(user: AuthDto): Reader[AuthorizeConfig, IO[Either[String, String]]] = {
-    Reader(
+  def authorize(user: AuthDto): Kleisli[IO, AuthorizeConfig, Either[String, String]] = {
+    Kleisli(
       (conf: AuthorizeConfig) => {
         user match {
           case m: ManagerDto =>
