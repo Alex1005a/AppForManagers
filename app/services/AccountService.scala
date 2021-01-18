@@ -11,16 +11,17 @@ import models.{PasswordHash, UnverifiedManager, User, VerifiedManager}
 import repositories.UserRepository
 
 case class AuthorizeConfig(repo: UserRepository, auth: Authentication)
+case class CreateUserConfig(repo: UserRepository, email: EmailSender)
 
 object AccountService {
 
-  def createUser(user: User): Kleisli[IO, UserRepository, Id] = {
+  def createUser(user: User): Kleisli[IO, CreateUserConfig, Id] = {
     Kleisli(
-      (repo: UserRepository) => for {
+      (conf: CreateUserConfig) => for {
         _ <- user match {
-          case u: UnverifiedManager => EmailService.sendEmail(u.email, "http://localhost:9000/account/" + u.confirmationToken, "Subject")
+          case u: UnverifiedManager => conf.email.sendEmail(u.email, "http://localhost:9000/account/" + u.confirmationToken, "Subject")
         }
-        id <- repo.create(user)
+        id <- conf.repo.create(user)
       } yield id
     )
   }

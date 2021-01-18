@@ -1,6 +1,7 @@
 import auth.{Authentication, JWTAuthentication}
 import com.google.inject.AbstractModule
 import repositories.{UserInMemoryRepository, UserRepository}
+import services.{EmailSender, EmailService}
 
 import java.time.Clock
 
@@ -9,6 +10,8 @@ class Module extends AbstractModule {
     bind(classOf[Clock]).toInstance(Clock.systemDefaultZone)
 
     bind(classOf[Authentication]).to(classOf[JWTAuthentication])
+
+    bind(classOf[EmailSender]).to(classOf[EmailService])
 
     bind(classOf[UserRepository]).to(classOf[UserInMemoryRepository])
   }

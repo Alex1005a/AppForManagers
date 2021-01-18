@@ -7,7 +7,11 @@ import java.util.Properties
 import javax.mail.{Message, Session, Transport}
 import javax.mail.internet.{InternetAddress, MimeMessage}
 
-object EmailService {
+trait EmailSender {
+  def sendEmail(toEmail: String, text: String, subject: String): IO[Unit]
+}
+
+class EmailService extends EmailSender {
 
   private val config = ConfigFactory.load()
   private val username: String = config.getString("myEmail")
