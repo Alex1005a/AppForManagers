@@ -10,8 +10,8 @@ import models.PasswordHash.PasswordHash
 import models.{PasswordHash, UnverifiedManager, User, VerifiedManager}
 import repositories.UserRepository
 
-case class AuthorizeConfig(repo: UserRepository, auth: Authentication)
-case class CreateUserConfig(repo: UserRepository, email: EmailSender)
+case class AuthorizeConfig(repo: UserRepository[IO], auth: Authentication)
+case class CreateUserConfig(repo: UserRepository[IO], email: EmailSender)
 
 object AccountService {
 
@@ -26,9 +26,9 @@ object AccountService {
     )
   }
 
-  def verifyManager(confirmationToken: String): Kleisli[IO, UserRepository, Either[String, String]] = {
+  def verifyManager(confirmationToken: String): Kleisli[IO, UserRepository[IO], Either[String, String]] = {
     Kleisli(
-      (repo: UserRepository) => {
+      (repo: UserRepository[IO]) => {
         for {
           manager <- repo.getUnverifiedManagerByToken(confirmationToken).value
         } yield manager match {
