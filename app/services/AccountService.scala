@@ -2,7 +2,7 @@ package services
 
 import auth.Authentication
 import cats.data.Kleisli
-import cats.effect.IO
+import cats.effect.{ContextShift, IO}
 import cats.implicits.catsSyntaxEitherId
 import controllers.{AuthDto, ManagerDto, WorkerDto}
 import models.Id.Id
@@ -10,16 +10,21 @@ import models.PasswordHash.PasswordHash
 import models.{PasswordHash, UnverifiedManager, User, VerifiedManager}
 import repositories.UserRepository
 
+import scala.concurrent.ExecutionContext
+
 case class AuthorizeConfig(repo: UserRepository[IO], auth: Authentication)
 case class CreateUserConfig(repo: UserRepository[IO], email: EmailSender)
 
 object AccountService {
 
+  implicit val cs: ContextShift[IO] = IO.contextShift(ExecutionContext.global)
+
   def createUser(user: User): Kleisli[IO, CreateUserConfig, Id] = {
     Kleisli(
       (conf: CreateUserConfig) => for {
         _ <- user match {
-          case u: UnverifiedManager => conf.email.sendEmail(u.email, "http://localhost:9000/account/" + u.confirmationToken, "Subject")
+          case u: UnverifiedManager =>
+            conf.email.sendEmail(u.email, "http://localhost:9000/account/" + u.confirmationToken, "Subject").start
         }
         id <- conf.repo.create(user)
       } yield id

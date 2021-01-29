@@ -1,6 +1,6 @@
 import auth.{Authentication, JWTAuthentication}
 import cats.effect.IO
-import com.google.inject.AbstractModule
+import com.google.inject.{AbstractModule, TypeLiteral}
 import repositories.{UserInMemoryRepository, UserRepository}
 import services.{EmailSender, EmailService}
 
@@ -14,7 +14,8 @@ class Module extends AbstractModule {
 
     bind(classOf[EmailSender]).to(classOf[EmailService])
 
-    bind(classOf[UserRepository[IO]]).to(classOf[UserInMemoryRepository])
+    bind(new TypeLiteral[UserRepository[IO]](){}).to(classOf[UserInMemoryRepository]).asEagerSingleton()
+
   }
 
 }

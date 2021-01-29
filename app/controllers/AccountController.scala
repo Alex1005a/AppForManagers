@@ -3,13 +3,12 @@ package controllers
 import Formats.JsonFormats.{ManagerDtoFormat, WorkerDtoFormat}
 import auth.Authentication
 import cats.effect.{ContextShift, IO}
-import controllers.IOHttp.ActionBuilderOps
+import libs.http.ActionBuilderOps
 import models.{UnverifiedManager, Worker}
 import play.api.http.Writeable
 import play.api.mvc.{AbstractController, Action, AnyContent, ControllerComponents, Result}
 import repositories.UserRepository
 import services.{AccountService, AuthorizeConfig, CreateUserConfig, EmailSender}
-
 import java.util.UUID
 import javax.inject.Inject
 import scala.concurrent.ExecutionContext
@@ -18,7 +17,8 @@ abstract class AuthDto
 case class ManagerDto(name: String, email: String, password: String) extends AuthDto
 case class WorkerDto(name: String, password: String) extends AuthDto
 
-class AccountController @Inject()(cc: ControllerComponents, auth: Authentication, repo: UserRepository[IO], email: EmailSender)(implicit ec: ExecutionContext) extends AbstractController(cc) {
+class AccountController @Inject()(cc: ControllerComponents, repo: UserRepository[IO], auth: Authentication, email: EmailSender)(implicit ec: ExecutionContext) extends AbstractController(cc) {
+
   implicit val cs: ContextShift[IO] = IO.contextShift(ec)
 
   def create: Action[AnyContent] = Action.asyncF { implicit request =>

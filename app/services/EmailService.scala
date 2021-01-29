@@ -12,7 +12,6 @@ trait EmailSender {
 }
 
 class EmailService extends EmailSender {
-
   private val config = ConfigFactory.load()
   private val username: String = config.getString("myEmail")
   private val password: String = config.getString("myEmailPassword")
