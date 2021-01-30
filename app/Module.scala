@@ -1,8 +1,5 @@
-import auth.{Authentication, JWTAuthentication}
-import cats.effect.IO
-import com.google.inject.{AbstractModule, TypeLiteral}
-import repositories.{UserInMemoryRepository, UserRepository}
-import services.{EmailSender, EmailService}
+import com.google.inject.AbstractModule
+import libs.{Env, ProdEnv}
 
 import java.time.Clock
 
@@ -10,12 +7,8 @@ class Module extends AbstractModule {
   override def configure(): Unit = {
     bind(classOf[Clock]).toInstance(Clock.systemDefaultZone)
 
-    bind(classOf[Authentication]).to(classOf[JWTAuthentication])
-
-    bind(classOf[EmailSender]).to(classOf[EmailService])
-
-    bind(new TypeLiteral[UserRepository[IO]](){}).to(classOf[UserInMemoryRepository]).asEagerSingleton()
-
+    bind(classOf[Env]).to(classOf[ProdEnv]).asEagerSingleton()
   }
-
 }
+
+

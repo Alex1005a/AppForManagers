@@ -1,32 +1,29 @@
 package services
 
-import auth.Authentication
 import cats.data.Kleisli
 import cats.effect.{ContextShift, IO}
 import cats.implicits.catsSyntaxEitherId
 import controllers.{AuthDto, ManagerDto, WorkerDto}
+import libs.Env
 import models.Id.Id
 import models.PasswordHash.PasswordHash
 import models.{PasswordHash, UnverifiedManager, User, VerifiedManager}
 import repositories.UserRepository
-
 import scala.concurrent.ExecutionContext
 
-case class AuthorizeConfig(repo: UserRepository[IO], auth: Authentication)
-case class CreateUserConfig(repo: UserRepository[IO], email: EmailSender)
 
 object AccountService {
 
   implicit val cs: ContextShift[IO] = IO.contextShift(ExecutionContext.global)
 
-  def createUser(user: User): Kleisli[IO, CreateUserConfig, Id] = {
+  def createUser(user: User): Kleisli[IO, Env, Id] = {
     Kleisli(
-      (conf: CreateUserConfig) => for {
+      (env: Env) => for {
         _ <- user match {
           case u: UnverifiedManager =>
-            conf.email.sendEmail(u.email, "http://localhost:9000/account/" + u.confirmationToken, "Subject").start
+            env.email.sendEmail(u.email, "http://localhost:9000/account/" + u.confirmationToken, "Subject").start
         }
-        id <- conf.repo.create(user)
+        id <- env.repo.create(user)
       } yield id
     )
   }
@@ -52,29 +49,29 @@ object AccountService {
     )
   }
 
-  def authorize(user: AuthDto): Kleisli[IO, AuthorizeConfig, Either[String, String]] = {
+  def authorize(user: AuthDto): Kleisli[IO, Env, Either[String, String]] = {
     Kleisli(
-      (conf: AuthorizeConfig) => {
+      (env: Env) => {
         user match {
           case m: ManagerDto =>
             for {
-              manager <- conf.repo.getManagerByName(m.name).value
+              manager <- env.repo.getManagerByName(m.name).value
             } yield manager match {
               case Some(manager) =>
                 if(manager.email != m.email) "Email not correct".asLeft[String]
                 for {
                   _ <- checkPassword(m.password, manager.passwordHash)
-                } yield conf.auth.authorize(manager)
+                } yield env.auth.authorize(manager)
               case None => "Manager not find".asLeft[String]
             }
           case w: WorkerDto =>
             for {
-              worker <- conf.repo.getWorkerByName(w.name).value
+              worker <- env.repo.getWorkerByName(w.name).value
             } yield worker match {
               case Some(worker) =>
                 for {
                   _ <- checkPassword(w.password, worker.passwordHash)
-                } yield conf.auth.authorize(worker)
+                } yield env.auth.authorize(worker)
 
               case None => "Worker not find".asLeft[String]
             }
