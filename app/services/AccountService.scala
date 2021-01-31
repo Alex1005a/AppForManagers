@@ -11,7 +11,6 @@ import models.{PasswordHash, UnverifiedManager, User, VerifiedManager}
 import repositories.UserRepository
 import scala.concurrent.ExecutionContext
 
-
 object AccountService {
 
   implicit val cs: ContextShift[IO] = IO.contextShift(ExecutionContext.global)
@@ -22,6 +21,7 @@ object AccountService {
         _ <- user match {
           case u: UnverifiedManager =>
             env.email.sendEmail(u.email, "http://localhost:9000/account/" + u.confirmationToken, "Subject").start
+          case _ => IO.unit
         }
         id <- env.repo.create(user)
       } yield id
