@@ -15,7 +15,8 @@ object AccountService {
 
   implicit val cs: ContextShift[IO] = IO.contextShift(ExecutionContext.global)
 
-  def createUser(user: User): Kleisli[IO, Env, Id] = {
+  def createUser(user: User): Kleisli[IO, Env, Either[String, Id]] = {
+    /*
     Kleisli(
       (env: Env) => for {
         _ <- user match {
@@ -25,6 +26,22 @@ object AccountService {
         }
         id <- env.repo.create(user)
       } yield id
+    )
+     */
+    Kleisli(
+      (env: Env) =>
+        user match {
+          case u: UnverifiedManager =>
+            for {
+              j <- env.email.sendEmail(u.email, "http://localhost:9000/account/" + u.confirmationToken, "Subject").start
+              id <- env.repo.create(user)
+              res <- j.join.attempt
+              _ <- if(res.isLeft) env.repo.deleteUnverifiedManager(u)
+              else IO.unit
+            } yield res.left.map(err => err.getMessage).map(_ => id)
+
+          case _ => env.repo.create(user).map(Right(_))
+        }
     )
   }
 

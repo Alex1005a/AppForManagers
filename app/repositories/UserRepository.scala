@@ -75,6 +75,7 @@ class UserInMemoryRepository extends UserRepository[IO] {
   override def deleteUnverifiedManager(manager: UnverifiedManager): IO[Unit] = {
     for {
       ref <- listUnverifiedManager
-    } yield ref.update(_ -= manager)
+      _ <- ref.update(_ -= manager)
+    } yield ()
   }
 }
