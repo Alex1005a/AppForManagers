@@ -1,7 +1,7 @@
 import auth.{Authentication, JWTAuthentication}
 import cats.effect.IO
 import libs.Env
-import models.{UnverifiedManager, Worker}
+import models.UnverifiedManager
 import org.scalatest.funsuite.AnyFunSuite
 import repositories.{UserInMemoryRepository, UserRepository}
 import services.{AccountService, EmailSender}
@@ -48,5 +48,5 @@ class TestEmail extends EmailSender {
   override def sendEmail(toEmail: String, text: String, subject: String): IO[Unit] = IO.unit
 }
 class TestEmailFail extends EmailSender {
-  override def sendEmail(toEmail: String, text: String, subject: String): IO[Unit] = IO(1 / 0)
+  override def sendEmail(toEmail: String, text: String, subject: String): IO[Unit] = IO.raiseError(new Exception("boom"))
 }

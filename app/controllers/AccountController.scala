@@ -65,9 +65,8 @@ class AccountController @Inject()(cc: ControllerComponents, env: Env)(implicit e
       case None => IO.pure(Ok("Missing or incorrect body"))
     }
   }
-  private def createUser(env: Env, user: User): IO[Result] = toOk(AccountService.createUser(user).run(env).map(
-    f => f.fold(err => err, ok => ok)
-  ))
+  private def createUser(env: Env, user: User): IO[Result] =
+    toOk(AccountService.createUser(user).run(env).map(_.merge))
   private def toOk[T](io: IO[T])(implicit writeable: Writeable[T]): IO[Result] = io.map(r => Ok(r))
-  private def serviceAuthorize(dto: AuthDto): IO[String] = AccountService.authorize(dto).run(env).map(_.fold(c => c, f => f))
+  private def serviceAuthorize(dto: AuthDto): IO[String] = AccountService.authorize(dto).run(env).map(_.merge)
 }
