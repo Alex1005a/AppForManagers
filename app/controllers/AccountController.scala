@@ -8,7 +8,6 @@ import models.{UnverifiedManager, User, Worker}
 import play.api.http.Writeable
 import play.api.mvc.{AbstractController, Action, AnyContent, ControllerComponents, Result}
 import services.AccountService
-
 import java.util.UUID
 import javax.inject.Inject
 import scala.concurrent.ExecutionContext
@@ -67,6 +66,6 @@ class AccountController @Inject()(cc: ControllerComponents, env: Env)(implicit e
   }
   private def createUser(env: Env, user: User): IO[Result] =
     toOk(AccountService.createUser(user).run(env).map(_.merge))
-  private def toOk[T](io: IO[T])(implicit writeable: Writeable[T]): IO[Result] = io.map(r => Ok(r))
+  private def toOk[T](io: IO[T])(implicit writeable: Writeable[T]): IO[Result] = io.map(Ok(_))
   private def serviceAuthorize(dto: AuthDto): IO[String] = AccountService.authorize(dto).run(env).map(_.merge)
 }
