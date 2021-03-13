@@ -7,7 +7,8 @@ import scala.util.Random
 
 class JWTAuthenticationTest extends AnyFunSuite {
   test("JWTAuthenticationSuccessTest") {
-    val user = VerifiedManager("Name", "test@gmail.com", "password").toOption.get
+    val user = VerifiedManager("Name", "test@gmail.com", "password").toOption.value
+      .unsafeRunSync.get
     val jwt = new JWTAuthentication().authorize(user)
     val userRequest = new JWTAuthentication().authenticate(jwt)
 

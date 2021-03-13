@@ -10,7 +10,8 @@ class CreateUserTest extends AnyFunSuite {
   test("CreateUserTest") {
     val env = new TestEnv()
     val token = "Token"
-    val manager = UnverifiedManager("Name", "test@gmail.com", "password", token).toOption.get
+    val manager = UnverifiedManager("Name", "test@gmail.com", "password", token).toOption.value
+      .unsafeRunSync.get
     AccountService.createUser(manager).run(env).unsafeRunSync()
     assert(env.repo.getUnverifiedManagerByToken(token).value.unsafeRunSync().isDefined)
   }
@@ -18,7 +19,8 @@ class CreateUserTest extends AnyFunSuite {
   test("CreateUserFailTest") {
     val env = new TestEnvEmailFail()
     val token = "Token"
-    val manager = UnverifiedManager("Name", "test@gmail.com", "password", token).toOption.get
+    val manager = UnverifiedManager("Name", "test@gmail.com", "password", token).toOption.value
+      .unsafeRunSync.get
     val res = AccountService.createUser(manager).run(env).unsafeRunSync()
 
     assert(res.isLeft)

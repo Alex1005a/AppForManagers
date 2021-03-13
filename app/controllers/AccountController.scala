@@ -24,14 +24,14 @@ class AccountController @Inject()(cc: ControllerComponents, env: Env)(implicit e
     request.body.asJson match {
       case Some(v) if v.validate[ManagerDto].isSuccess =>
         val m = v.validate[ManagerDto].get
-        UnverifiedManager(m.name, m.email, m.password, UUID.randomUUID().toString) match {
+        UnverifiedManager(m.name, m.email, m.password, UUID.randomUUID().toString).value.flatMap {
           case Left(err) => IO.pure(InternalServerError(err))
           case Right(manager) => createUser(env, manager)
         }
 
       case Some(v) if v.validate[WorkerDto].isSuccess =>
         val w = v.validate[WorkerDto].get
-        Worker(w.name, w.password) match {
+        Worker(w.name, w.password).value.flatMap {
           case Left(err) => IO.pure(InternalServerError(err))
           case Right(worker) => createUser(env, worker)
         }

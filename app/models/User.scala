@@ -1,11 +1,13 @@
 package models
 
+import cats.data.EitherT
+import cats.effect.IO
+import io.chrisdavenport.fuuid.FUUID
 import models.Email.Email
 import models.Id.Id
 import models.Name.Name
 import models.PasswordHash.PasswordHash
 import org.mindrot.jbcrypt.BCrypt
-import java.util.UUID
 
 trait User
 trait Manager extends User {
@@ -24,31 +26,37 @@ case class VerifiedManager(id: Id, name: Name, email: Email, passwordHash: Passw
 
 
 object Worker {
-  def apply(name: String, password: String): Either[String, Worker] = {
-    for {
-      name <- Name(name)
-      hash <- PasswordHash(password)
-    } yield Worker(Id(), name, hash)
+  def apply(name: String, password: String): EitherT[IO, String, Worker] = EitherT {
+    Id().map { id =>
+      for {
+        name <- Name(name)
+        hash <- PasswordHash(password)
+      } yield Worker(id, name, hash)
+    }
   }
 }
 
 object UnverifiedManager {
-  def apply(name: String, email: String, password: String, confirmationToken: String): Either[String, UnverifiedManager] = {
-    for {
-      name <- Name(name)
-      email <- Email(email)
-      hash <- PasswordHash(password)
-    } yield UnverifiedManager(Id(), name, email, hash, confirmationToken)
+  def apply(name: String, email: String, password: String, confirmationToken: String): EitherT[IO, String, UnverifiedManager] = EitherT {
+    Id().map { id =>
+      for {
+        name <- Name(name)
+        email <- Email(email)
+        hash <- PasswordHash(password)
+      } yield UnverifiedManager(id, name, email, hash, confirmationToken)
+    }
   }
 }
 
 object VerifiedManager {
-  def apply(name: String, email: String, password: String): Either[String, VerifiedManager] = {
-    for {
-      name <- Name(name)
-      email <- Email(email)
-      hash <- PasswordHash(password)
-    } yield VerifiedManager(Id(), name, email, hash)
+  def apply(name: String, email: String, password: String): EitherT[IO, String, VerifiedManager] = EitherT {
+    Id().map { id =>
+      for {
+        name <- Name(name)
+        email <- Email(email)
+        hash <- PasswordHash(password)
+      } yield VerifiedManager(id, name, email, hash)
+    }
   }
 }
 
@@ -56,8 +64,8 @@ object Id {
 
   type Id = String
 
-  def apply(): Id = {
-    UUID.randomUUID().toString
+  def apply(): IO[Id] = {
+    FUUID.randomFUUID[IO].map(_.show)
   }
 }
 

@@ -43,7 +43,6 @@ object AccountService {
 
         case None => IO("Manager not find".asLeft[String])
       }
-
     }
   }
 

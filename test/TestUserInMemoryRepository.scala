@@ -5,7 +5,8 @@ import repositories.UserInMemoryRepository
 class TestUserInMemoryRepository extends AnyFunSuite {
   test("TestUserInMemoryRepository") {
     val token = "Token"
-    val manager = UnverifiedManager("Name", "test@gmail.com", "password", token).toOption.get
+    val manager = UnverifiedManager("Name", "test@gmail.com", "password", token).toOption.value
+      .unsafeRunSync.get
 
     val repo = new UserInMemoryRepository()
     repo.create(manager).unsafeRunSync()
