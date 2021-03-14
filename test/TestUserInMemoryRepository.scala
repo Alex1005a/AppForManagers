@@ -1,20 +1,20 @@
+import cats.effect.testing.scalatest.AsyncIOSpec
 import models.UnverifiedManager
-import org.scalatest.funsuite.AnyFunSuite
+import org.scalatest.freespec.AsyncFreeSpec
 import repositories.UserInMemoryRepository
 
-class TestUserInMemoryRepository extends AnyFunSuite {
-  test("TestUserInMemoryRepository") {
+class TestUserInMemoryRepository extends AsyncFreeSpec with AsyncIOSpec {
+  "TestUserInMemoryRepository" in {
     val token = "Token"
-    val manager = UnverifiedManager("Name", "test@gmail.com", "password", token).toOption.value
-      .unsafeRunSync.get
-
     val repo = new UserInMemoryRepository()
-    repo.create(manager).unsafeRunSync()
-
-    assert(repo.getUnverifiedManagerByToken(token).value.unsafeRunSync().isDefined)
-
-    repo.deleteUnverifiedManager(manager).unsafeRunSync()
-
-    assert(repo.getUnverifiedManagerByToken(token).value.unsafeRunSync().isEmpty)
+    UnverifiedManager("Name", "test@gmail.com", "password", token).toOption.value
+      .map(_.get).map { unverifiedManager =>
+      repo.create(unverifiedManager)
+      repo.getUnverifiedManagerByToken(token).value.asserting(option => assert(option.isDefined))
+      unverifiedManager
+    }.flatMap { unverifiedManager =>
+      repo.deleteUnverifiedManager(unverifiedManager)
+      repo.getUnverifiedManagerByToken(token).value.asserting(option => assert(option.isEmpty))
+    }
   }
 }

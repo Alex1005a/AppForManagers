@@ -16,7 +16,7 @@ libraryDependencies += "org.scalatest" %% "scalatest" % "3.0.8" % Test
 libraryDependencies ++= Seq( "com.jason-goodwin" %% "authentikat-jwt" % "0.4.5" , "org.typelevel" %% "cats-effect-laws" % "2.3.1" , "org.scalatestplus.play" %% "scalatestplus-play" % "5.1.0" % "test", "org.mindrot" % "jbcrypt" % "0.4" )
 libraryDependencies += "javax.mail" % "mail" % "1.5.0-b01"
 libraryDependencies += "io.chrisdavenport" %% "fuuid" % "0.5.0"
-
+libraryDependencies += "com.codecommit" %% "cats-effect-testing-scalatest" % "0.5.2" % Test
 unmanagedResourceDirectories in Test <+=  baseDirectory ( _ /"target/web/public/test" )  
 
       

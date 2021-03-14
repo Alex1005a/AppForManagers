@@ -1,30 +1,32 @@
 import auth.{Authentication, JWTAuthentication}
 import cats.effect.IO
+import cats.effect.testing.scalatest.AsyncIOSpec
 import libs.Env
 import models.UnverifiedManager
-import org.scalatest.funsuite.AnyFunSuite
+import org.scalatest.freespec.AsyncFreeSpec
 import repositories.{UserInMemoryRepository, UserRepository}
 import services.{AccountService, EmailSender}
 
-class CreateUserTest extends AnyFunSuite {
-  test("CreateUserTest") {
+class CreateUserTest extends AsyncFreeSpec with AsyncIOSpec {
+  "CreateUserTest" in {
     val env = new TestEnv()
     val token = "Token"
-    val manager = UnverifiedManager("Name", "test@gmail.com", "password", token).toOption.value
-      .unsafeRunSync.get
-    AccountService.createUser(manager).run(env).unsafeRunSync()
-    assert(env.repo.getUnverifiedManagerByToken(token).value.unsafeRunSync().isDefined)
+    UnverifiedManager("Name", "test@gmail.com", "password", token).toOption.value
+      .map(_.get).flatMap { unverifiedManager =>
+      AccountService.createUser(unverifiedManager).run(env)
+    }.asserting(_ => assert(env.repo.getUnverifiedManagerByToken(token).value.unsafeRunSync().isDefined))
   }
 
-  test("CreateUserFailTest") {
+  "CreateUserFailTest" in {
     val env = new TestEnvEmailFail()
     val token = "Token"
-    val manager = UnverifiedManager("Name", "test@gmail.com", "password", token).toOption.value
-      .unsafeRunSync.get
-    val res = AccountService.createUser(manager).run(env).unsafeRunSync()
-
-    assert(res.isLeft)
-    assert(env.repo.getUnverifiedManagerByToken(token).value.unsafeRunSync().isEmpty)
+    UnverifiedManager("Name", "test@gmail.com", "password", token).toOption.value
+      .map(_.get).flatMap { unverifiedManager =>
+      AccountService.createUser(unverifiedManager).run(env)
+    }.asserting { result =>
+      assert(result.isLeft)
+      assert(env.repo.getUnverifiedManagerByToken(token).value.unsafeRunSync().isEmpty)
+    }
   }
 }
 

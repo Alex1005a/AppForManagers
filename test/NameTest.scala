@@ -1,11 +1,13 @@
+import cats.effect.testing.scalatest.AsyncIOSpec
 import models.Worker
-import org.scalatest.funsuite.AnyFunSuite
+import org.scalatest.freespec.AsyncFreeSpec
 
-class NameTest extends AnyFunSuite {
-  test("NameTest") {
+class NameTest extends AsyncFreeSpec with AsyncIOSpec {
+  "NameTest" in {
     val name = "Name"
-    val w = Worker(name, "password").value.unsafeRunSync
-    assert(w.isRight)
-    assert(w.toOption.get.name == name)
+    Worker(name, "password").value.map { createResult =>
+      assert(createResult.isRight)
+      assert(createResult.toOption.get.name == name)
+    }
   }
 }
