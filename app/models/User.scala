@@ -1,6 +1,7 @@
 package models
 
-import cats.data.EitherT
+
+import cats.data.{EitherNel, EitherT}
 import cats.effect.IO
 import io.chrisdavenport.fuuid.FUUID
 import models.Email.Email
@@ -8,6 +9,8 @@ import models.Id.Id
 import models.Name.Name
 import models.PasswordHash.PasswordHash
 import org.mindrot.jbcrypt.BCrypt
+import cats.implicits.{catsSyntaxEitherId, catsSyntaxTuple2Parallel, catsSyntaxTuple3Parallel}
+import libs.EitherNelT.EitherNelT
 
 trait User
 trait Manager extends User {
@@ -16,6 +19,7 @@ trait Manager extends User {
   def email: Email
   def passwordHash: PasswordHash
 }
+
 case class Worker(id: Id, name: Name, passwordHash: PasswordHash) extends User
 
 case class UnverifiedManager(id: Id, name: Name, email: Email, passwordHash: PasswordHash, confirmationToken: String)
@@ -26,36 +30,28 @@ case class VerifiedManager(id: Id, name: Name, email: Email, passwordHash: Passw
 
 
 object Worker {
-  def apply(name: String, password: String): EitherT[IO, String, Worker] = EitherT {
+  def apply(name: String, password: String): EitherNelT[IO, String, Worker] = EitherT {
     Id().map { id =>
-      for {
-        name <- Name(name)
-        hash <- PasswordHash(password)
-      } yield Worker(id, name, hash)
+      (Name(name), PasswordHash(password))
+        .parMapN(Worker(id, _, _))
     }
   }
 }
 
 object UnverifiedManager {
-  def apply(name: String, email: String, password: String, confirmationToken: String): EitherT[IO, String, UnverifiedManager] = EitherT {
+  def apply(name: String, email: String, password: String, confirmationToken: String): EitherNelT[IO, String, UnverifiedManager] = EitherT {
     Id().map { id =>
-      for {
-        name <- Name(name)
-        email <- Email(email)
-        hash <- PasswordHash(password)
-      } yield UnverifiedManager(id, name, email, hash, confirmationToken)
+      (Name(name), Email(email), PasswordHash(password))
+        .parMapN(UnverifiedManager(id, _, _, _, confirmationToken))
     }
   }
 }
 
 object VerifiedManager {
-  def apply(name: String, email: String, password: String): EitherT[IO, String, VerifiedManager] = EitherT {
+  def apply(name: String, email: String, password: String): EitherNelT[IO, String, VerifiedManager] = EitherT {
     Id().map { id =>
-      for {
-        name <- Name(name)
-        email <- Email(email)
-        hash <- PasswordHash(password)
-      } yield VerifiedManager(id, name, email, hash)
+      (Name(name), Email(email), PasswordHash(password))
+        .parMapN(VerifiedManager(id, _, _, _))
     }
   }
 }
@@ -73,10 +69,10 @@ object Name {
 
   type Name = String
 
-  def apply(x: String): Either[String, Name] = {
-    x match{
-      case c if c.length > 50 | c.length < 2 => Left("Name length must be less 50 and more 1")
-      case _ =>  Right(x.asInstanceOf[Name])
+  def apply(x: String): EitherNel[String, Name] = {
+    x match {
+      case c if c.length > 50 | c.length < 2 => "Name length must be less 50 and more 1".leftNel
+      case _ =>  x.rightNel
     }
   }
 }
@@ -85,14 +81,14 @@ object PasswordHash {
 
   type PasswordHash = String
 
-  def apply(password: String): Either[String, PasswordHash] = {
-    password match{
-      case c if c.length > 50 | c.length < 5 => Left("Password length must be less 50 and more 4")
-      case _ =>  Right(BCrypt.hashpw(password, BCrypt.gensalt()))
+  def apply(password: String): EitherNel[String, PasswordHash] = {
+    password match {
+      case c if c.length > 50 | c.length < 5 => "Password length must be less 50 and more 4".leftNel
+      case _ =>  BCrypt.hashpw(password, BCrypt.gensalt()).rightNel
     }
   }
 
-  def checkPassword(password: String, hash: PasswordHash): Boolean ={
+  def checkPassword(password: String, hash: PasswordHash): Boolean = {
     BCrypt.checkpw(password, hash)
   }
 }
@@ -101,10 +97,10 @@ object Email {
 
   type Email = String
 
-  def apply(email: String): Either[String, Email] = {
-    email match{
-      case c if """(\w+)@([\w.]+)""".r.unapplySeq(c).isEmpty => Left("Email not valid")
-      case _ =>  Right(email)
+  def apply(email: String): EitherNel[String, Email] = {
+    email match {
+      case c if """(\w+)@([\w.]+)""".r.unapplySeq(c).isEmpty => "Email not valid".leftNel
+      case _ =>  email.rightNel
     }
   }
 }
