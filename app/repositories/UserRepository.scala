@@ -34,14 +34,14 @@ trait UserRepository[F[_]] {
 
 class UserInMemoryRepository extends UserRepository[IO] {
 
-  def update[T <: User](user: T, listUserIO: IO[Ref[IO, ListBuffer[T]]]): IO[Boolean] = for {
+  private def update[T <: User](user: T, listUserIO: IO[Ref[IO, ListBuffer[T]]]): IO[Boolean] = for {
     ref <- listUserIO
     existResult <- ref.get.map(_.exists(_.id == user.id))
     result <- if(!existResult) IO(false)
     else ref.get.map(_.filterNot(_.id == user.id)).flatMap(list => ref.update(_ => list += user)).map(_ => true)
   } yield result
 
-  def getBy[T <: User](listUserIO: IO[Ref[IO, ListBuffer[T]]], predicate: T => Boolean): OptionT[IO, T] = OptionT {
+  private def getBy[T <: User](listUserIO: IO[Ref[IO, ListBuffer[T]]], predicate: T => Boolean): OptionT[IO, T] = OptionT {
     for {
       ref <- listUserIO
       result <- ref.get.map(_.find(predicate))

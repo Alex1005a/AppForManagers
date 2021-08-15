@@ -23,6 +23,13 @@ trait InviteRepository[F[_]] {
 }
 
 class InviteInMemoryRepository extends InviteRepository[IO] {
+  private def getBy[A](function: ListBuffer[Invite] => A): IO[A] = {
+    for {
+      ref <- invites
+      result <- ref.get.map(function)
+    } yield result
+  }
+
   private val invites = Ref.of[IO, ListBuffer[Invite]](ListBuffer.empty[Invite])
 
   override def create(invite: Invite): IO[Id] = for {
@@ -31,21 +38,12 @@ class InviteInMemoryRepository extends InviteRepository[IO] {
   } yield invite.id
 
   override def getById(id: Id): OptionT[IO, Invite] = OptionT {
-    for {
-      ref <- invites
-      result <- ref.get.map(_.find(_.id == id))
-    } yield result
+    getBy(_.find(_.id == id))
   }
 
-  override def getByWorkerId(id: Id): IO[Array[Invite]] = for {
-    ref <- invites
-    result <- ref.get.map(_.filter(_.workerId == id).toArray)
-  } yield result
+  override def getByWorkerId(id: Id): IO[Array[Invite]] = getBy(_.filter(_.workerId == id).toArray)
 
-  override def getByManagerId(id: Id): IO[Array[Invite]] = for {
-    ref <- invites
-    result <- ref.get.map(_.filter(_.managerId == id).toArray)
-  } yield result
+  override def getByManagerId(id: Id): IO[Array[Invite]] = getBy(_.filter(_.managerId == id).toArray)
 
   override def delete(invite: Invite): IO[Unit] = {
     for {
