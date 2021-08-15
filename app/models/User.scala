@@ -20,38 +20,50 @@ trait Manager extends User {
   def passwordHash: PasswordHash
 }
 
-case class Worker(id: Id, name: Name, passwordHash: PasswordHash) extends User
+case class Worker private (id: Id, name: Name, passwordHash: PasswordHash, managers: Array[Id]) extends User
 
-case class UnverifiedManager(id: Id, name: Name, email: Email, passwordHash: PasswordHash, confirmationToken: String)
+case class UnverifiedManager private (id: Id, name: Name, email: Email, passwordHash: PasswordHash, confirmationToken: String)
   extends Manager
 
-case class VerifiedManager(id: Id, name: Name, email: Email, passwordHash: PasswordHash)
+case class VerifiedManager private (id: Id, name: Name, email: Email, passwordHash: PasswordHash, workers: Array[Id])
   extends Manager
 
 
 object Worker {
+  private def apply(id: Id, name: Name, passwordHash: PasswordHash, managers: Array[Id]): Worker = {
+    new Worker(id, name, passwordHash, Array.empty)
+  }
+
   def apply(name: String, password: String): EitherNelT[IO, String, Worker] = EitherT {
     Id().map { id =>
       (Name(name), PasswordHash(password))
-        .parMapN(Worker(id, _, _))
+        .parMapN(new Worker(id, _, _, Array.empty))
     }
   }
 }
 
 object UnverifiedManager {
+  private def apply(id: Id, name: Name, email: Email, passwordHash: PasswordHash, confirmationToken: String): UnverifiedManager = {
+    new UnverifiedManager(id, name, email, passwordHash, confirmationToken)
+  }
+
   def apply(name: String, email: String, password: String, confirmationToken: String): EitherNelT[IO, String, UnverifiedManager] = EitherT {
     Id().map { id =>
       (Name(name), Email(email), PasswordHash(password))
-        .parMapN(UnverifiedManager(id, _, _, _, confirmationToken))
+        .parMapN(new UnverifiedManager(id, _, _, _, confirmationToken))
     }
   }
 }
 
 object VerifiedManager {
+   private def apply(id: Id, name: Name, email: Email, passwordHash: PasswordHash, workers: Array[Id]): VerifiedManager = {
+    new VerifiedManager(id, name, email, passwordHash, workers)
+  }
+
   def apply(name: String, email: String, password: String): EitherNelT[IO, String, VerifiedManager] = EitherT {
     Id().map { id =>
       (Name(name), Email(email), PasswordHash(password))
-        .parMapN(VerifiedManager(id, _, _, _))
+        .parMapN(new VerifiedManager(id, _, _, _, Array.empty))
     }
   }
 }

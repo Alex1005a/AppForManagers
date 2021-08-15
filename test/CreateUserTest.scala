@@ -4,7 +4,7 @@ import cats.effect.testing.scalatest.AsyncIOSpec
 import libs.Env
 import models.UnverifiedManager
 import org.scalatest.freespec.AsyncFreeSpec
-import repositories.{UserInMemoryRepository, UserRepository}
+import repositories.{InviteInMemoryRepository, UserInMemoryRepository, UserRepository}
 import services.{AccountService, EmailSender}
 
 class CreateUserTest extends AsyncFreeSpec with AsyncIOSpec {
@@ -14,7 +14,7 @@ class CreateUserTest extends AsyncFreeSpec with AsyncIOSpec {
     UnverifiedManager("Name", "test@gmail.com", "password", token).toOption.value
       .map(_.get).flatMap { unverifiedManager =>
       AccountService.createUser(unverifiedManager).run(env)
-    }.asserting(_ => assert(env.repo.getUnverifiedManagerByToken(token).value.unsafeRunSync().isDefined))
+    }.asserting(_ => assert(env.userRepository.getUnverifiedManagerByToken(token).value.unsafeRunSync().isDefined))
   }
 
   "CreateUserFailTest" in {
@@ -25,7 +25,7 @@ class CreateUserTest extends AsyncFreeSpec with AsyncIOSpec {
       AccountService.createUser(unverifiedManager).run(env)
     }.asserting { result =>
       assert(result.isLeft)
-      assert(env.repo.getUnverifiedManagerByToken(token).value.unsafeRunSync().isEmpty)
+      assert(env.userRepository.getUnverifiedManagerByToken(token).value.unsafeRunSync().isEmpty)
     }
   }
 }
@@ -36,7 +36,9 @@ class TestEnv extends Env {
 
   override def auth: Authentication = new JWTAuthentication()
 
-  override val repo: UserRepository[IO] = new UserInMemoryRepository()
+  override val userRepository: UserRepository[IO] = new UserInMemoryRepository()
+
+  override val inviteRepository = new InviteInMemoryRepository()
 }
 
 class TestEnvEmailFail extends Env {
@@ -45,7 +47,9 @@ class TestEnvEmailFail extends Env {
 
   override def auth: Authentication = new JWTAuthentication()
 
-  override val repo: UserRepository[IO] = new UserInMemoryRepository()
+  override val userRepository: UserRepository[IO] = new UserInMemoryRepository()
+
+  override val inviteRepository = new InviteInMemoryRepository()
 }
 
 class TestEmail extends EmailSender {

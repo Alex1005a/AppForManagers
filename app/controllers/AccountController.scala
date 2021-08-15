@@ -2,7 +2,6 @@ package controllers
 
 import Formats.JsonFormats.{ManagerDtoFormat, WorkerDtoFormat}
 import cats.data.NonEmptyList
-import cats.data.Validated.{Invalid, Valid}
 import cats.effect.{ContextShift, IO}
 import libs.Env
 import libs.http.ActionBuilderOps
@@ -10,7 +9,6 @@ import models.{UnverifiedManager, User, Worker}
 import play.api.http.Writeable
 import play.api.mvc.{AbstractController, Action, AnyContent, ControllerComponents, Result}
 import services.AccountService
-
 import java.util.UUID
 import javax.inject.Inject
 import scala.concurrent.ExecutionContext
@@ -46,7 +44,7 @@ class AccountController @Inject()(cc: ControllerComponents, env: Env)(implicit e
   }
 
   def verifyManager(confirmationToken: String): Action[AnyContent] = Action.asyncF { implicit request =>
-    AccountService.verifyManager(confirmationToken).run(env.repo).map {
+    AccountService.verifyManager(confirmationToken).run(env.userRepository).map {
       case Left(err) => InternalServerError(err)
       case Right(res) => Ok(res)
     }

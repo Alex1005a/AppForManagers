@@ -21,13 +21,13 @@ object AccountService {
         case u: UnverifiedManager =>
           for {
             j <- env.email.sendEmail(u.email, "http://localhost:9000/account/" + u.confirmationToken, "Subject").start
-            id <- env.repo.create(user)
+            id <- env.userRepository.create(user)
             res <- j.join.attempt
-            _ <- if(res.isLeft) env.repo.deleteUnverifiedManager(u)
+            _ <- if(res.isLeft) env.userRepository.deleteUnverifiedManager(u)
             else IO.unit
           } yield res.left.map(_.getMessage).map(_ =>id)
 
-        case _ => env.repo.create(user).map(Right(_))
+        case _ => env.userRepository.create(user).map(Right(_))
       }
   }
 
@@ -35,9 +35,10 @@ object AccountService {
     (repo: UserRepository[IO]) => {
       repo.getUnverifiedManagerByToken(confirmationToken).value.flatMap {
         case Some(v) =>
-          val verifiedManager = VerifiedManager(v.id, v.name, v.email, v.passwordHash)
+          val verifiedManagerIO = VerifiedManager(v.name, v.email, v.passwordHash).toOption.value.map(_.get)
           for {
             _ <- repo.deleteUnverifiedManager(v).start
+            verifiedManager <- verifiedManagerIO
             id <- repo.create(verifiedManager)
           } yield s"Manager with $id verified successfully".asRight[String]
 
@@ -51,7 +52,7 @@ object AccountService {
       user match {
         case m: ManagerDto =>
           for {
-            manager <- env.repo.getManagerByName(m.name).value
+            manager <- env.userRepository.getManagerByName(m.name).value
           } yield manager match {
             case Some(manager) =>
               if(manager.email != m.email) "Email not correct".asLeft[String]
@@ -62,7 +63,7 @@ object AccountService {
           }
         case w: WorkerDto =>
           for {
-            worker <- env.repo.getWorkerByName(w.name).value
+            worker <- env.userRepository.getWorkerByName(w.name).value
           } yield worker match {
             case Some(worker) =>
               for {

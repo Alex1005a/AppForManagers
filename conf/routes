@@ -5,3 +5,7 @@ GET     /account/:token            controllers.AccountController.verifyManager(t
 POST    /account/create            controllers.AccountController.create
 
 POST    /account/authorize         controllers.AccountController.authorize
+
+POST    /invites/create            controllers.InviteController.create
+
+GET     /invites                   controllers.InviteController.getInvites

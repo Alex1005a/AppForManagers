@@ -2,13 +2,14 @@ package libs
 
 import auth.{Authentication, JWTAuthentication}
 import cats.effect.IO
-import repositories.{UserInMemoryRepository, UserRepository}
+import repositories.{InviteInMemoryRepository, InviteRepository, UserInMemoryRepository, UserRepository}
 import services.{EmailSender, EmailService}
 
 trait Env {
   def email: EmailSender
   def auth: Authentication
-  def repo: UserRepository[IO]
+  def userRepository: UserRepository[IO]
+  def inviteRepository: InviteRepository[IO]
 }
 
 class ProdEnv extends Env {
@@ -16,5 +17,7 @@ class ProdEnv extends Env {
 
   override def auth: Authentication = new JWTAuthentication()
 
-  override val repo = new UserInMemoryRepository()
+  override val userRepository = new UserInMemoryRepository()
+
+  override val inviteRepository = new InviteInMemoryRepository()
 }
