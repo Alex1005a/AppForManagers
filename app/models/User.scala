@@ -12,7 +12,11 @@ import org.mindrot.jbcrypt.BCrypt
 import cats.implicits.{catsSyntaxEitherId, catsSyntaxTuple2Parallel, catsSyntaxTuple3Parallel}
 import libs.EitherNelT.EitherNelT
 
-trait User
+trait User {
+  def id: Id
+  def name: Name
+  def passwordHash: PasswordHash
+}
 trait Manager extends User {
   def id: Id
   def name: Name
