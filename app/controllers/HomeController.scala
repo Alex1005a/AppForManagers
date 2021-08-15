@@ -13,11 +13,11 @@ class HomeController @Inject()(cc: ControllerComponents, env: Env) extends Abstr
   def index: Action[AnyContent] = Action { implicit request =>
     val user = env.auth.authenticate(request.headers.get("Authorization").getOrElse(""))
     user match {
-      case Right(v) => v match {
-        case w: WorkerAuth => Ok(Json.toJson(w))
-        case m: ManagerAuth => Ok(Json.toJson(m))
+      case Right(auth) => auth match {
+        case workerAuth: WorkerAuth => Ok(Json.toJson(workerAuth))
+        case managerAuth: ManagerAuth => Ok(Json.toJson(managerAuth))
       }
-      case Left(v) => InternalServerError(v)
+      case Left(error) => InternalServerError(error)
     }
   }
 }

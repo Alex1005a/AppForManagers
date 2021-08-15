@@ -21,13 +21,13 @@ class InviteController @Inject()(cc: ControllerComponents, env: Env)(implicit ec
           case Some(workerId) =>  InviteService.createInvite(workerId, manager.id).run(env)
             .map(
               _.fold(
-                err => InternalServerError(err),
-                i => Ok(Json.toJson(i))
+                error => InternalServerError(error),
+                invite => Ok(Json.toJson(invite))
               )
             )
           case None => IO(InternalServerError("Not find worker id"))
         }
-      case Left(v) => IO(InternalServerError(v))
+      case Left(error) => IO(InternalServerError(error))
       case _ => IO(InternalServerError("You are worker, but not manager"))
     }
   }
@@ -39,7 +39,7 @@ class InviteController @Inject()(cc: ControllerComponents, env: Env)(implicit ec
         case w: WorkerAuth => InviteService.getInvitesByWorkerId(w.id).run(env).map(res => Ok(Json.toJson(res)))
         case m: ManagerAuth => InviteService.getInvitesByManagerId(m.id).run(env).map(res => Ok(Json.toJson(res)))
       }
-      case Left(v) => IO(InternalServerError(v))
+      case Left(error) => IO(InternalServerError(error))
     }
   }
 
@@ -52,7 +52,7 @@ class InviteController @Inject()(cc: ControllerComponents, env: Env)(implicit ec
             .map(_.fold(InternalServerError(_), _ => Ok("Invite confirmed!!")))
           case None => IO(InternalServerError("Not find invite id"))
         }
-      case Left(v) => IO(InternalServerError(v))
+      case Left(error) => IO(InternalServerError(error))
       case _ => IO(InternalServerError("You are manager, but not worker"))
     }
   }

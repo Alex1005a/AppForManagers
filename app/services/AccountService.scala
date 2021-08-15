@@ -18,12 +18,12 @@ object AccountService {
   def createUser(user: User): Kleisli[IO, Env, Either[String, Id]] = Kleisli {
     (env: Env) =>
       user match {
-        case u: UnverifiedManager =>
+        case unverifiedManager: UnverifiedManager =>
           for {
-            j <- env.email.sendEmail(u.email, "http://localhost:9000/account/" + u.confirmationToken, "Subject").start
+            j <- env.email.sendEmail(unverifiedManager.email, "http://localhost:9000/account/" + unverifiedManager.confirmationToken, "Subject").start
             id <- env.userRepository.create(user)
             res <- j.join.attempt
-            _ <- if(res.isLeft) env.userRepository.deleteUnverifiedManager(u)
+            _ <- if(res.isLeft) env.userRepository.deleteUnverifiedManager(unverifiedManager)
             else IO.unit
           } yield res.left.map(_.getMessage).map(_ =>id)
 
@@ -50,14 +50,14 @@ object AccountService {
   def authorize(user: AuthDto): Kleisli[IO, Env, Either[String, String]] = Kleisli {
     (env: Env) => {
       user match {
-        case m: ManagerDto =>
+        case managerDto: ManagerDto =>
           for {
-            manager <- env.userRepository.getManagerByName(m.name).value
+            manager <- env.userRepository.getManagerByName(managerDto.name).value
           } yield manager match {
             case Some(manager) =>
-              if(manager.email != m.email) "Email not correct".asLeft[String]
+              if(manager.email != managerDto.email) "Email not correct".asLeft[String]
               for {
-                _ <- checkPassword(m.password, manager.passwordHash)
+                _ <- checkPassword(managerDto.password, manager.passwordHash)
               } yield env.auth.authorize(manager)
             case None => "Manager not find".asLeft[String]
           }
