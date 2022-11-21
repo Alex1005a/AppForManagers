@@ -29167,3 +29167,759 @@ WARNING: Unmatched cancel notification for request id 2236
 2022.11.21 16:29:00 INFO  time: compiled appformanagers-test in 0.91s
 2022.11.21 16:29:02 INFO  No mtags for 2.12.2.
 2022.11.21 16:29:02 WARN  unsupported Scala 2.12.2
+2022.11.21 16:32:09 ERROR Failed to fetch mtags for 2.12.2
+Error downloading org.scalameta:mtags_2.12.2:0.11.9
+  not found: C:\Users\azazf\.ivy2\local\org.scalameta\mtags_2.12.2\0.11.9\ivys\ivy.xml
+  not found: https://repo1.maven.org/maven2/org/scalameta/mtags_2.12.2/0.11.9/mtags_2.12.2-0.11.9.pom
+  not found: https://oss.sonatype.org/content/repositories/public/org/scalameta/mtags_2.12.2/0.11.9/mtags_2.12.2-0.11.9.pom
+  not found: https://oss.sonatype.org/content/repositories/snapshots/org/scalameta/mtags_2.12.2/0.11.9/mtags_2.12.2-0.11.9.pom
+2022.11.21 16:32:09 WARN  unsupported Scala 2.12.2
+2022.11.21 16:32:15 INFO  No mtags for 2.12.2.
+2022.11.21 16:32:15 WARN  unsupported Scala 2.12.2
+2022.11.21 16:32:15 INFO  No mtags for 2.12.2.
+2022.11.21 16:32:15 WARN  unsupported Scala 2.12.2
+2022.11.21 16:32:16 INFO  No mtags for 2.12.2.
+2022.11.21 16:32:16 WARN  unsupported Scala 2.12.2
+2022.11.21 16:32:22 INFO  No mtags for 2.12.2.
+2022.11.21 16:32:22 WARN  unsupported Scala 2.12.2
+2022.11.21 16:32:22 INFO  No mtags for 2.12.2.
+2022.11.21 16:32:22 WARN  unsupported Scala 2.12.2
+2022.11.21 16:32:22 INFO  No mtags for 2.12.2.
+2022.11.21 16:32:22 WARN  unsupported Scala 2.12.2
+2022.11.21 16:32:24 INFO  No mtags for 2.12.2.
+2022.11.21 16:32:24 WARN  unsupported Scala 2.12.2
+2022.11.21 16:32:26 INFO  No mtags for 2.12.2.
+2022.11.21 16:32:26 WARN  unsupported Scala 2.12.2
+2022.11.21 16:32:29 INFO  No mtags for 2.12.2.
+2022.11.21 16:32:29 WARN  unsupported Scala 2.12.2
+2022.11.21 16:32:29 INFO  No mtags for 2.12.2.
+2022.11.21 16:32:29 WARN  unsupported Scala 2.12.2
+2022.11.21 16:32:40 INFO  No mtags for 2.12.2.
+2022.11.21 16:32:40 WARN  unsupported Scala 2.12.2
+2022.11.21 16:32:42 INFO  No mtags for 2.12.2.
+2022.11.21 16:32:42 WARN  unsupported Scala 2.12.2
+2022.11.21 16:32:50 INFO  No mtags for 2.12.2.
+2022.11.21 16:32:50 WARN  unsupported Scala 2.12.2
+2022.11.21 16:32:50 INFO  No mtags for 2.12.2.
+2022.11.21 16:32:50 WARN  unsupported Scala 2.12.2
+2022.11.21 16:32:50 INFO  No mtags for 2.12.2.
+2022.11.21 16:32:50 WARN  unsupported Scala 2.12.2
+2022.11.21 16:32:53 INFO  No mtags for 2.12.2.
+2022.11.21 16:32:53 WARN  unsupported Scala 2.12.2
+2022.11.21 16:32:53 INFO  No mtags for 2.12.2.
+2022.11.21 16:32:53 WARN  unsupported Scala 2.12.2
+2022.11.21 16:32:56 INFO  No mtags for 2.12.2.
+2022.11.21 16:32:56 WARN  unsupported Scala 2.12.2
+2022.11.21 16:32:56 INFO  No mtags for 2.12.2.
+2022.11.21 16:32:56 WARN  unsupported Scala 2.12.2
+2022.11.21 16:32:59 INFO  No mtags for 2.12.2.
+2022.11.21 16:32:59 WARN  unsupported Scala 2.12.2
+2022.11.21 16:32:59 INFO  No mtags for 2.12.2.
+2022.11.21 16:32:59 WARN  unsupported Scala 2.12.2
+2022.11.21 16:33:01 INFO  No mtags for 2.12.2.
+2022.11.21 16:33:01 WARN  unsupported Scala 2.12.2
+2022.11.21 16:33:01 INFO  No mtags for 2.12.2.
+2022.11.21 16:33:01 WARN  unsupported Scala 2.12.2
+2022.11.21 16:33:01 INFO  No mtags for 2.12.2.
+2022.11.21 16:33:01 WARN  unsupported Scala 2.12.2
+2022.11.21 16:33:03 INFO  compiling appformanagers-test (1 scala source)
+2022.11.21 16:33:03 INFO  time: compiled appformanagers-test in 0.93s
+2022.11.21 16:33:28 INFO  No mtags for 2.12.2.
+2022.11.21 16:33:28 WARN  unsupported Scala 2.12.2
+2022.11.21 16:33:28 INFO  No mtags for 2.12.2.
+2022.11.21 16:33:28 WARN  unsupported Scala 2.12.2
+2022.11.21 16:33:28 INFO  No mtags for 2.12.2.
+2022.11.21 16:33:28 WARN  unsupported Scala 2.12.2
+2022.11.21 16:33:28 INFO  No mtags for 2.12.2.
+2022.11.21 16:33:28 WARN  unsupported Scala 2.12.2
+2022.11.21 16:33:29 INFO  No mtags for 2.12.2.
+2022.11.21 16:33:29 WARN  unsupported Scala 2.12.2
+2022.11.21 16:33:31 INFO  No mtags for 2.12.2.
+2022.11.21 16:33:31 WARN  unsupported Scala 2.12.2
+2022.11.21 16:33:31 INFO  No mtags for 2.12.2.
+2022.11.21 16:33:31 WARN  unsupported Scala 2.12.2
+2022.11.21 16:33:34 INFO  No mtags for 2.12.2.
+2022.11.21 16:33:34 WARN  unsupported Scala 2.12.2
+2022.11.21 16:33:36 INFO  No mtags for 2.12.2.
+2022.11.21 16:33:36 WARN  unsupported Scala 2.12.2
+2022.11.21 16:33:37 INFO  No mtags for 2.12.2.
+2022.11.21 16:33:37 WARN  unsupported Scala 2.12.2
+2022.11.21 16:33:40 INFO  compiling appformanagers-test (1 scala source)
+2022.11.21 16:33:40 INFO  time: compiled appformanagers-test in 0.29s
+2022.11.21 16:33:43 INFO  No mtags for 2.12.2.
+2022.11.21 16:33:43 WARN  unsupported Scala 2.12.2
+2022.11.21 16:33:43 INFO  No mtags for 2.12.2.
+2022.11.21 16:33:43 WARN  unsupported Scala 2.12.2
+2022.11.21 16:33:45 INFO  No mtags for 2.12.2.
+2022.11.21 16:33:45 WARN  unsupported Scala 2.12.2
+2022.11.21 16:33:45 INFO  No mtags for 2.12.2.
+2022.11.21 16:33:45 WARN  unsupported Scala 2.12.2
+2022.11.21 16:34:01 INFO  No mtags for 2.12.2.
+2022.11.21 16:34:01 WARN  unsupported Scala 2.12.2
+2022.11.21 16:34:02 INFO  No mtags for 2.12.2.
+2022.11.21 16:34:02 WARN  unsupported Scala 2.12.2
+2022.11.21 16:34:02 INFO  No mtags for 2.12.2.
+2022.11.21 16:34:02 WARN  unsupported Scala 2.12.2
+2022.11.21 16:34:06 INFO  No mtags for 2.12.2.
+2022.11.21 16:34:06 WARN  unsupported Scala 2.12.2
+2022.11.21 16:34:07 INFO  No mtags for 2.12.2.
+2022.11.21 16:34:07 WARN  unsupported Scala 2.12.2
+2022.11.21 16:34:07 INFO  No mtags for 2.12.2.
+2022.11.21 16:34:07 WARN  unsupported Scala 2.12.2
+2022.11.21 16:34:07 INFO  No mtags for 2.12.2.
+2022.11.21 16:34:07 WARN  unsupported Scala 2.12.2
+2022.11.21 16:34:08 INFO  No mtags for 2.12.2.
+2022.11.21 16:34:08 WARN  unsupported Scala 2.12.2
+2022.11.21 16:35:07 INFO  No mtags for 2.12.2.
+2022.11.21 16:35:07 WARN  unsupported Scala 2.12.2
+2022.11.21 16:35:08 ERROR Failed to fetch mtags for 2.10.7
+Error downloading org.scalameta:mtags_2.10.7:0.11.9
+  not found: C:\Users\azazf\.ivy2\local\org.scalameta\mtags_2.10.7\0.11.9\ivys\ivy.xml
+  not found: https://repo1.maven.org/maven2/org/scalameta/mtags_2.10.7/0.11.9/mtags_2.10.7-0.11.9.pom
+  not found: https://oss.sonatype.org/content/repositories/public/org/scalameta/mtags_2.10.7/0.11.9/mtags_2.10.7-0.11.9.pom
+  not found: https://oss.sonatype.org/content/repositories/snapshots/org/scalameta/mtags_2.10.7/0.11.9/mtags_2.10.7-0.11.9.pom
+2022.11.21 16:35:08 WARN  unsupported Scala 2.10.7
+2022.11.21 16:35:09 ERROR Failed to fetch mtags for 2.10.7
+Error downloading org.scalameta:mtags_2.10.7:0.11.9
+  not found: C:\Users\azazf\.ivy2\local\org.scalameta\mtags_2.10.7\0.11.9\ivys\ivy.xml
+  not found: https://repo1.maven.org/maven2/org/scalameta/mtags_2.10.7/0.11.9/mtags_2.10.7-0.11.9.pom
+  not found: https://oss.sonatype.org/content/repositories/public/org/scalameta/mtags_2.10.7/0.11.9/mtags_2.10.7-0.11.9.pom
+  not found: https://oss.sonatype.org/content/repositories/snapshots/org/scalameta/mtags_2.10.7/0.11.9/mtags_2.10.7-0.11.9.pom
+2022.11.21 16:35:09 WARN  unsupported Scala 2.10.7
+2022.11.21 16:35:09 INFO  No mtags for 2.10.7.
+2022.11.21 16:35:09 WARN  unsupported Scala 2.10.7
+2022.11.21 16:35:09 INFO  No mtags for 2.10.7.
+2022.11.21 16:35:09 WARN  unsupported Scala 2.10.7
+2022.11.21 16:35:09 INFO  No mtags for 2.10.7.
+2022.11.21 16:35:09 WARN  unsupported Scala 2.10.7
+2022.11.21 16:35:10 INFO  time: code lens generation in 2.26s
+2022.11.21 16:35:09 INFO  No mtags for 2.10.7.
+2022.11.21 16:35:09 WARN  unsupported Scala 2.10.7
+2022.11.21 16:35:10 INFO  No mtags for 2.10.7.
+2022.11.21 16:35:10 WARN  unsupported Scala 2.10.7
+2022.11.21 16:35:10 INFO  No mtags for 2.10.7.
+2022.11.21 16:35:10 WARN  unsupported Scala 2.10.7
+2022.11.21 16:35:10 INFO  No mtags for 2.10.7.
+2022.11.21 16:35:10 WARN  unsupported Scala 2.10.7
+2022.11.21 16:35:34 INFO  No mtags for 2.10.7.
+2022.11.21 16:35:34 WARN  unsupported Scala 2.10.7
+2022.11.21 16:35:37 INFO  No mtags for 2.12.2.
+2022.11.21 16:35:37 WARN  unsupported Scala 2.12.2
+2022.11.21 16:35:37 INFO  No mtags for 2.12.2.
+2022.11.21 16:35:37 WARN  unsupported Scala 2.12.2
+2022.11.21 16:35:37 INFO  No mtags for 2.12.2.
+2022.11.21 16:35:37 WARN  unsupported Scala 2.12.2
+2022.11.21 16:35:49 INFO  No mtags for 2.12.2.
+2022.11.21 16:35:49 WARN  unsupported Scala 2.12.2
+2022.11.21 16:35:49 INFO  No mtags for 2.12.2.
+2022.11.21 16:35:49 WARN  unsupported Scala 2.12.2
+2022.11.21 16:35:49 INFO  No mtags for 2.12.2.
+2022.11.21 16:35:49 WARN  unsupported Scala 2.12.2
+2022.11.21 16:35:50 INFO  No mtags for 2.12.2.
+2022.11.21 16:35:50 WARN  unsupported Scala 2.12.2
+2022.11.21 16:35:49 INFO  No mtags for 2.12.2.
+2022.11.21 16:35:49 WARN  unsupported Scala 2.12.2
+2022.11.21 16:35:51 INFO  No mtags for 2.12.2.
+2022.11.21 16:35:51 WARN  unsupported Scala 2.12.2
+2022.11.21 16:35:51 INFO  No mtags for 2.12.2.
+2022.11.21 16:35:51 WARN  unsupported Scala 2.12.2
+2022.11.21 16:35:51 INFO  No mtags for 2.12.2.
+2022.11.21 16:35:51 WARN  unsupported Scala 2.12.2
+2022.11.21 16:35:51 INFO  No mtags for 2.12.2.
+2022.11.21 16:35:51 WARN  unsupported Scala 2.12.2
+2022.11.21 16:35:51 INFO  No mtags for 2.12.2.
+2022.11.21 16:35:51 WARN  unsupported Scala 2.12.2
+2022.11.21 16:35:51 INFO  No mtags for 2.12.2.
+2022.11.21 16:35:51 WARN  unsupported Scala 2.12.2
+2022.11.21 16:35:51 INFO  No mtags for 2.12.2.
+2022.11.21 16:35:51 WARN  unsupported Scala 2.12.2
+2022.11.21 16:35:52 INFO  No mtags for 2.12.2.
+2022.11.21 16:35:52 WARN  unsupported Scala 2.12.2
+2022.11.21 16:35:52 INFO  No mtags for 2.12.2.
+2022.11.21 16:35:52 WARN  unsupported Scala 2.12.2
+2022.11.21 16:35:52 INFO  No mtags for 2.12.2.
+2022.11.21 16:35:52 WARN  unsupported Scala 2.12.2
+2022.11.21 16:35:52 INFO  No mtags for 2.12.2.
+2022.11.21 16:35:52 WARN  unsupported Scala 2.12.2
+2022.11.21 16:35:52 INFO  No mtags for 2.12.2.
+2022.11.21 16:35:52 WARN  unsupported Scala 2.12.2
+2022.11.21 16:35:53 INFO  No mtags for 2.12.2.
+2022.11.21 16:35:53 WARN  unsupported Scala 2.12.2
+2022.11.21 16:35:54 INFO  No mtags for 2.12.2.
+2022.11.21 16:35:54 WARN  unsupported Scala 2.12.2
+2022.11.21 16:35:54 INFO  No mtags for 2.12.2.
+2022.11.21 16:35:54 WARN  unsupported Scala 2.12.2
+2022.11.21 16:35:54 INFO  No mtags for 2.12.2.
+2022.11.21 16:35:54 WARN  unsupported Scala 2.12.2
+2022.11.21 16:35:54 INFO  No mtags for 2.12.2.
+2022.11.21 16:35:54 WARN  unsupported Scala 2.12.2
+2022.11.21 16:35:55 INFO  No mtags for 2.12.2.
+2022.11.21 16:35:55 WARN  unsupported Scala 2.12.2
+2022.11.21 16:35:54 INFO  No mtags for 2.12.2.
+2022.11.21 16:35:54 WARN  unsupported Scala 2.12.2
+2022.11.21 16:35:55 INFO  No mtags for 2.12.2.
+2022.11.21 16:35:55 WARN  unsupported Scala 2.12.2
+2022.11.21 16:35:56 INFO  No mtags for 2.12.2.
+2022.11.21 16:35:56 WARN  unsupported Scala 2.12.2
+2022.11.21 16:35:56 INFO  No mtags for 2.12.2.
+2022.11.21 16:35:56 WARN  unsupported Scala 2.12.2
+2022.11.21 16:35:57 INFO  No mtags for 2.12.2.
+2022.11.21 16:35:57 WARN  unsupported Scala 2.12.2
+2022.11.21 16:35:57 INFO  No mtags for 2.12.2.
+2022.11.21 16:35:57 WARN  unsupported Scala 2.12.2
+2022.11.21 16:35:57 INFO  No mtags for 2.12.2.
+2022.11.21 16:35:57 WARN  unsupported Scala 2.12.2
+2022.11.21 16:35:58 INFO  No mtags for 2.12.2.
+2022.11.21 16:35:58 WARN  unsupported Scala 2.12.2
+2022.11.21 16:35:58 INFO  No mtags for 2.12.2.
+2022.11.21 16:35:58 WARN  unsupported Scala 2.12.2
+2022.11.21 16:36:00 INFO  No mtags for 2.12.2.
+2022.11.21 16:36:00 WARN  unsupported Scala 2.12.2
+2022.11.21 16:36:00 INFO  No mtags for 2.12.2.
+2022.11.21 16:36:00 WARN  unsupported Scala 2.12.2
+2022.11.21 16:36:00 INFO  compiling appformanagers-test (1 scala source)
+2022.11.21 16:36:00 INFO  No mtags for 2.12.2.
+2022.11.21 16:36:00 WARN  unsupported Scala 2.12.2
+2022.11.21 16:36:01 INFO  time: compiled appformanagers-test in 1.1s
+2022.11.21 16:36:01 INFO  No mtags for 2.12.2.
+2022.11.21 16:36:01 WARN  unsupported Scala 2.12.2
+2022.11.21 16:36:01 INFO  No mtags for 2.12.2.
+2022.11.21 16:36:01 WARN  unsupported Scala 2.12.2
+2022.11.21 16:36:09 INFO  No mtags for 2.12.2.
+2022.11.21 16:36:09 WARN  unsupported Scala 2.12.2
+2022.11.21 16:36:19 INFO  No mtags for 2.12.2.
+2022.11.21 16:36:19 WARN  unsupported Scala 2.12.2
+2022.11.21 16:36:22 INFO  No mtags for 2.12.2.
+2022.11.21 16:36:22 WARN  unsupported Scala 2.12.2
+2022.11.21 16:36:26 INFO  No mtags for 2.12.2.
+2022.11.21 16:36:26 WARN  unsupported Scala 2.12.2
+2022.11.21 16:36:26 INFO  No mtags for 2.12.2.
+2022.11.21 16:36:26 WARN  unsupported Scala 2.12.2
+2022.11.21 16:36:26 INFO  compiling appformanagers-test (1 scala source)
+2022.11.21 16:36:26 INFO  time: compiled appformanagers-test in 0.33s
+2022.11.21 16:36:29 INFO  No mtags for 2.12.2.
+2022.11.21 16:36:29 WARN  unsupported Scala 2.12.2
+2022.11.21 16:36:30 INFO  compiling appformanagers-test (1 scala source)
+2022.11.21 16:36:30 INFO  time: compiled appformanagers-test in 0.32s
+2022.11.21 16:36:31 INFO  No mtags for 2.12.2.
+2022.11.21 16:36:31 WARN  unsupported Scala 2.12.2
+2022.11.21 16:36:31 INFO  No mtags for 2.12.2.
+2022.11.21 16:36:31 WARN  unsupported Scala 2.12.2
+2022.11.21 16:36:33 INFO  No mtags for 2.12.2.
+2022.11.21 16:36:33 WARN  unsupported Scala 2.12.2
+2022.11.21 16:36:40 INFO  No mtags for 2.12.2.
+2022.11.21 16:36:40 WARN  unsupported Scala 2.12.2
+2022.11.21 16:36:41 INFO  No mtags for 2.12.2.
+2022.11.21 16:36:41 WARN  unsupported Scala 2.12.2
+2022.11.21 16:36:51 INFO  No mtags for 2.12.2.
+2022.11.21 16:36:51 WARN  unsupported Scala 2.12.2
+2022.11.21 16:36:53 INFO  No mtags for 2.12.2.
+2022.11.21 16:36:53 WARN  unsupported Scala 2.12.2
+2022.11.21 16:36:53 INFO  No mtags for 2.12.2.
+2022.11.21 16:36:53 WARN  unsupported Scala 2.12.2
+2022.11.21 16:36:53 INFO  No mtags for 2.12.2.
+2022.11.21 16:36:53 WARN  unsupported Scala 2.12.2
+2022.11.21 16:36:53 INFO  No mtags for 2.12.2.
+2022.11.21 16:36:53 WARN  unsupported Scala 2.12.2
+2022.11.21 16:36:57 INFO  No mtags for 2.12.2.
+2022.11.21 16:36:57 WARN  unsupported Scala 2.12.2
+2022.11.21 16:37:02 INFO  No mtags for 2.12.2.
+2022.11.21 16:37:02 WARN  unsupported Scala 2.12.2
+2022.11.21 16:37:02 INFO  No mtags for 2.12.2.
+2022.11.21 16:37:02 WARN  unsupported Scala 2.12.2
+2022.11.21 16:37:02 INFO  No mtags for 2.12.2.
+2022.11.21 16:37:02 WARN  unsupported Scala 2.12.2
+2022.11.21 16:37:02 INFO  No mtags for 2.12.2.
+2022.11.21 16:37:02 WARN  unsupported Scala 2.12.2
+2022.11.21 16:37:03 INFO  No mtags for 2.12.2.
+2022.11.21 16:37:03 WARN  unsupported Scala 2.12.2
+2022.11.21 16:37:05 INFO  No mtags for 2.12.2.
+2022.11.21 16:37:05 WARN  unsupported Scala 2.12.2
+2022.11.21 16:37:07 INFO  No mtags for 2.12.2.
+2022.11.21 16:37:07 WARN  unsupported Scala 2.12.2
+2022.11.21 16:37:07 INFO  No mtags for 2.12.2.
+2022.11.21 16:37:07 WARN  unsupported Scala 2.12.2
+2022.11.21 16:37:13 ERROR Failed to fetch mtags for 2.12.2
+Error downloading org.scalameta:mtags_2.12.2:0.11.9
+  not found: C:\Users\azazf\.ivy2\local\org.scalameta\mtags_2.12.2\0.11.9\ivys\ivy.xml
+  not found: https://repo1.maven.org/maven2/org/scalameta/mtags_2.12.2/0.11.9/mtags_2.12.2-0.11.9.pom
+  not found: https://oss.sonatype.org/content/repositories/public/org/scalameta/mtags_2.12.2/0.11.9/mtags_2.12.2-0.11.9.pom
+  not found: https://oss.sonatype.org/content/repositories/snapshots/org/scalameta/mtags_2.12.2/0.11.9/mtags_2.12.2-0.11.9.pom
+2022.11.21 16:37:13 WARN  unsupported Scala 2.12.2
+ноя 21, 2022 4:37:13 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 2700
+ноя 21, 2022 4:37:13 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 2701
+ноя 21, 2022 4:37:13 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 2703
+ноя 21, 2022 4:37:13 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 2704
+ноя 21, 2022 4:37:13 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 2705
+2022.11.21 16:37:15 INFO  No mtags for 2.12.2.
+2022.11.21 16:37:15 WARN  unsupported Scala 2.12.2
+2022.11.21 16:37:15 INFO  No mtags for 2.12.2.
+2022.11.21 16:37:15 WARN  unsupported Scala 2.12.2
+2022.11.21 16:37:16 INFO  No mtags for 2.12.2.
+2022.11.21 16:37:16 WARN  unsupported Scala 2.12.2
+2022.11.21 16:37:17 INFO  compiling appformanagers-test (1 scala source)
+2022.11.21 16:37:17 INFO  time: compiled appformanagers-test in 0.29s
+2022.11.21 16:37:17 INFO  No mtags for 2.12.2.
+2022.11.21 16:37:17 WARN  unsupported Scala 2.12.2
+2022.11.21 16:37:18 INFO  No mtags for 2.12.2.
+2022.11.21 16:37:18 WARN  unsupported Scala 2.12.2
+2022.11.21 16:37:18 INFO  No mtags for 2.12.2.
+2022.11.21 16:37:18 WARN  unsupported Scala 2.12.2
+2022.11.21 16:37:20 INFO  compiling appformanagers-test (1 scala source)
+2022.11.21 16:37:20 INFO  time: compiled appformanagers-test in 0.32s
+2022.11.21 16:37:21 INFO  No mtags for 2.12.2.
+2022.11.21 16:37:21 WARN  unsupported Scala 2.12.2
+2022.11.21 16:37:23 INFO  No mtags for 2.12.2.
+2022.11.21 16:37:23 WARN  unsupported Scala 2.12.2
+2022.11.21 16:37:33 INFO  No mtags for 2.12.2.
+2022.11.21 16:37:33 WARN  unsupported Scala 2.12.2
+2022.11.21 16:37:33 INFO  No mtags for 2.12.2.
+2022.11.21 16:37:33 WARN  unsupported Scala 2.12.2
+2022.11.21 16:37:34 INFO  No mtags for 2.12.2.
+2022.11.21 16:37:34 WARN  unsupported Scala 2.12.2
+2022.11.21 16:37:34 INFO  No mtags for 2.12.2.
+2022.11.21 16:37:34 WARN  unsupported Scala 2.12.2
+2022.11.21 16:37:34 INFO  No mtags for 2.12.2.
+2022.11.21 16:37:34 WARN  unsupported Scala 2.12.2
+2022.11.21 16:37:34 INFO  No mtags for 2.12.2.
+2022.11.21 16:37:34 WARN  unsupported Scala 2.12.2
+2022.11.21 16:37:35 INFO  No mtags for 2.12.2.
+2022.11.21 16:37:35 WARN  unsupported Scala 2.12.2
+2022.11.21 16:37:35 INFO  No mtags for 2.12.2.
+2022.11.21 16:37:35 WARN  unsupported Scala 2.12.2
+2022.11.21 16:37:35 INFO  No mtags for 2.12.2.
+2022.11.21 16:37:35 WARN  unsupported Scala 2.12.2
+2022.11.21 16:37:37 INFO  No mtags for 2.12.2.
+2022.11.21 16:37:37 WARN  unsupported Scala 2.12.2
+2022.11.21 16:37:37 INFO  No mtags for 2.12.2.
+2022.11.21 16:37:37 WARN  unsupported Scala 2.12.2
+2022.11.21 16:37:37 INFO  No mtags for 2.12.2.
+2022.11.21 16:37:37 WARN  unsupported Scala 2.12.2
+2022.11.21 16:37:37 INFO  No mtags for 2.12.2.
+2022.11.21 16:37:37 WARN  unsupported Scala 2.12.2
+2022.11.21 16:37:37 INFO  No mtags for 2.12.2.
+2022.11.21 16:37:37 WARN  unsupported Scala 2.12.2
+2022.11.21 16:37:37 INFO  No mtags for 2.12.2.
+2022.11.21 16:37:37 WARN  unsupported Scala 2.12.2
+2022.11.21 16:37:37 INFO  No mtags for 2.12.2.
+2022.11.21 16:37:37 WARN  unsupported Scala 2.12.2
+2022.11.21 16:37:37 INFO  compiling appformanagers-test (1 scala source)
+2022.11.21 16:37:37 INFO  No mtags for 2.12.2.
+2022.11.21 16:37:37 WARN  unsupported Scala 2.12.2
+2022.11.21 16:37:38 INFO  No mtags for 2.12.2.
+2022.11.21 16:37:38 WARN  unsupported Scala 2.12.2
+2022.11.21 16:37:37 INFO  time: compiled appformanagers-test in 0.34s
+2022.11.21 16:37:38 INFO  No mtags for 2.12.2.
+2022.11.21 16:37:38 WARN  unsupported Scala 2.12.2
+2022.11.21 16:37:39 INFO  No mtags for 2.12.2.
+2022.11.21 16:37:39 WARN  unsupported Scala 2.12.2
+2022.11.21 16:37:40 INFO  No mtags for 2.12.2.
+2022.11.21 16:37:40 WARN  unsupported Scala 2.12.2
+2022.11.21 16:37:42 INFO  No mtags for 2.12.2.
+2022.11.21 16:37:42 WARN  unsupported Scala 2.12.2
+2022.11.21 16:37:42 INFO  No mtags for 2.12.2.
+2022.11.21 16:37:42 WARN  unsupported Scala 2.12.2
+2022.11.21 16:37:47 INFO  No mtags for 2.12.2.
+2022.11.21 16:37:47 WARN  unsupported Scala 2.12.2
+2022.11.21 16:37:47 INFO  No mtags for 2.12.2.
+2022.11.21 16:37:47 WARN  unsupported Scala 2.12.2
+2022.11.21 16:37:49 INFO  No mtags for 2.12.2.
+2022.11.21 16:37:49 WARN  unsupported Scala 2.12.2
+2022.11.21 16:37:49 INFO  No mtags for 2.12.2.
+2022.11.21 16:37:49 WARN  unsupported Scala 2.12.2
+2022.11.21 16:37:51 INFO  compiling appformanagers-test (1 scala source)
+2022.11.21 16:37:51 INFO  time: compiled appformanagers-test in 0.29s
+2022.11.21 16:37:52 INFO  No mtags for 2.12.2.
+2022.11.21 16:37:52 WARN  unsupported Scala 2.12.2
+2022.11.21 16:37:56 INFO  No mtags for 2.12.2.
+2022.11.21 16:37:56 WARN  unsupported Scala 2.12.2
+2022.11.21 16:37:56 INFO  No mtags for 2.12.2.
+2022.11.21 16:37:56 WARN  unsupported Scala 2.12.2
+2022.11.21 16:37:58 INFO  No mtags for 2.12.2.
+2022.11.21 16:37:58 WARN  unsupported Scala 2.12.2
+2022.11.21 16:37:58 INFO  No mtags for 2.12.2.
+2022.11.21 16:37:58 WARN  unsupported Scala 2.12.2
+2022.11.21 16:37:58 INFO  No mtags for 2.12.2.
+2022.11.21 16:37:58 WARN  unsupported Scala 2.12.2
+2022.11.21 16:37:58 INFO  No mtags for 2.12.2.
+2022.11.21 16:37:58 WARN  unsupported Scala 2.12.2
+2022.11.21 16:38:01 INFO  No mtags for 2.12.2.
+2022.11.21 16:38:01 WARN  unsupported Scala 2.12.2
+2022.11.21 16:38:01 INFO  No mtags for 2.12.2.
+2022.11.21 16:38:01 WARN  unsupported Scala 2.12.2
+2022.11.21 16:38:01 INFO  No mtags for 2.12.2.
+2022.11.21 16:38:01 WARN  unsupported Scala 2.12.2
+2022.11.21 16:38:02 INFO  No mtags for 2.12.2.
+2022.11.21 16:38:02 WARN  unsupported Scala 2.12.2
+2022.11.21 16:38:02 INFO  No mtags for 2.12.2.
+2022.11.21 16:38:02 WARN  unsupported Scala 2.12.2
+2022.11.21 16:38:05 INFO  No mtags for 2.12.2.
+2022.11.21 16:38:05 WARN  unsupported Scala 2.12.2
+2022.11.21 16:38:06 INFO  No mtags for 2.12.2.
+2022.11.21 16:38:06 WARN  unsupported Scala 2.12.2
+2022.11.21 16:38:06 INFO  No mtags for 2.12.2.
+2022.11.21 16:38:06 WARN  unsupported Scala 2.12.2
+2022.11.21 16:38:06 INFO  compiling appformanagers-test (1 scala source)
+2022.11.21 16:38:06 INFO  time: compiled appformanagers-test in 0.91s
+2022.11.21 16:38:07 INFO  No mtags for 2.12.2.
+2022.11.21 16:38:07 WARN  unsupported Scala 2.12.2
+2022.11.21 16:38:07 INFO  No mtags for 2.12.2.
+2022.11.21 16:38:07 WARN  unsupported Scala 2.12.2
+2022.11.21 16:38:07 INFO  No mtags for 2.12.2.
+2022.11.21 16:38:07 WARN  unsupported Scala 2.12.2
+2022.11.21 16:38:08 INFO  No mtags for 2.12.2.
+2022.11.21 16:38:08 WARN  unsupported Scala 2.12.2
+2022.11.21 16:38:08 INFO  No mtags for 2.12.2.
+2022.11.21 16:38:08 WARN  unsupported Scala 2.12.2
+2022.11.21 16:38:08 INFO  No mtags for 2.12.2.
+2022.11.21 16:38:08 WARN  unsupported Scala 2.12.2
+2022.11.21 16:38:11 INFO  compiling appformanagers-test (1 scala source)
+2022.11.21 16:38:11 INFO  time: compiled appformanagers-test in 0.29s
+2022.11.21 16:38:14 INFO  No mtags for 2.12.2.
+2022.11.21 16:38:14 WARN  unsupported Scala 2.12.2
+2022.11.21 16:38:16 INFO  No mtags for 2.12.2.
+2022.11.21 16:38:16 WARN  unsupported Scala 2.12.2
+2022.11.21 16:38:18 INFO  No mtags for 2.12.2.
+2022.11.21 16:38:18 WARN  unsupported Scala 2.12.2
+2022.11.21 16:38:20 INFO  No mtags for 2.12.2.
+2022.11.21 16:38:20 WARN  unsupported Scala 2.12.2
+2022.11.21 16:38:20 INFO  No mtags for 2.12.2.
+2022.11.21 16:38:20 WARN  unsupported Scala 2.12.2
+2022.11.21 16:38:21 INFO  compiling appformanagers-test (1 scala source)
+2022.11.21 16:38:21 INFO  time: compiled appformanagers-test in 0.29s
+2022.11.21 16:38:22 INFO  No mtags for 2.12.2.
+2022.11.21 16:38:22 WARN  unsupported Scala 2.12.2
+2022.11.21 16:38:26 INFO  No mtags for 2.12.2.
+2022.11.21 16:38:26 WARN  unsupported Scala 2.12.2
+2022.11.21 16:38:26 INFO  No mtags for 2.12.2.
+2022.11.21 16:38:26 WARN  unsupported Scala 2.12.2
+2022.11.21 16:38:28 INFO  No mtags for 2.12.2.
+2022.11.21 16:38:28 WARN  unsupported Scala 2.12.2
+2022.11.21 16:38:28 INFO  No mtags for 2.12.2.
+2022.11.21 16:38:28 WARN  unsupported Scala 2.12.2
+2022.11.21 16:38:30 INFO  compiling appformanagers-test (1 scala source)
+2022.11.21 16:38:30 INFO  time: compiled appformanagers-test in 0.31s
+2022.11.21 16:38:31 INFO  No mtags for 2.12.2.
+2022.11.21 16:38:31 WARN  unsupported Scala 2.12.2
+2022.11.21 16:38:36 INFO  No mtags for 2.12.2.
+2022.11.21 16:38:36 WARN  unsupported Scala 2.12.2
+2022.11.21 16:38:36 INFO  No mtags for 2.12.2.
+2022.11.21 16:38:36 WARN  unsupported Scala 2.12.2
+2022.11.21 16:38:36 INFO  No mtags for 2.12.2.
+2022.11.21 16:38:36 WARN  unsupported Scala 2.12.2
+2022.11.21 16:38:37 INFO  No mtags for 2.12.2.
+2022.11.21 16:38:37 WARN  unsupported Scala 2.12.2
+2022.11.21 16:38:37 INFO  No mtags for 2.12.2.
+2022.11.21 16:38:37 WARN  unsupported Scala 2.12.2
+2022.11.21 16:38:38 INFO  No mtags for 2.12.2.
+2022.11.21 16:38:38 WARN  unsupported Scala 2.12.2
+2022.11.21 16:38:40 INFO  No mtags for 2.12.2.
+2022.11.21 16:38:40 WARN  unsupported Scala 2.12.2
+2022.11.21 16:38:40 INFO  No mtags for 2.12.2.
+2022.11.21 16:38:40 WARN  unsupported Scala 2.12.2
+2022.11.21 16:38:42 INFO  No mtags for 2.12.2.
+2022.11.21 16:38:42 WARN  unsupported Scala 2.12.2
+2022.11.21 16:38:44 INFO  No mtags for 2.12.2.
+2022.11.21 16:38:44 WARN  unsupported Scala 2.12.2
+2022.11.21 16:38:44 INFO  No mtags for 2.12.2.
+2022.11.21 16:38:44 WARN  unsupported Scala 2.12.2
+2022.11.21 16:38:44 INFO  No mtags for 2.12.2.
+2022.11.21 16:38:44 WARN  unsupported Scala 2.12.2
+2022.11.21 16:38:46 INFO  No mtags for 2.12.2.
+2022.11.21 16:38:46 WARN  unsupported Scala 2.12.2
+2022.11.21 16:38:46 INFO  No mtags for 2.12.2.
+2022.11.21 16:38:46 WARN  unsupported Scala 2.12.2
+2022.11.21 16:38:48 INFO  No mtags for 2.12.2.
+2022.11.21 16:38:48 WARN  unsupported Scala 2.12.2
+2022.11.21 16:38:48 INFO  No mtags for 2.12.2.
+2022.11.21 16:38:48 WARN  unsupported Scala 2.12.2
+2022.11.21 16:38:48 INFO  No mtags for 2.12.2.
+2022.11.21 16:38:48 WARN  unsupported Scala 2.12.2
+2022.11.21 16:38:48 INFO  No mtags for 2.12.2.
+2022.11.21 16:38:48 WARN  unsupported Scala 2.12.2
+2022.11.21 16:38:49 INFO  No mtags for 2.12.2.
+2022.11.21 16:38:49 WARN  unsupported Scala 2.12.2
+2022.11.21 16:38:49 INFO  No mtags for 2.12.2.
+2022.11.21 16:38:49 WARN  unsupported Scala 2.12.2
+2022.11.21 16:38:51 INFO  No mtags for 2.12.2.
+2022.11.21 16:38:51 WARN  unsupported Scala 2.12.2
+2022.11.21 16:38:52 INFO  No mtags for 2.12.2.
+2022.11.21 16:38:52 WARN  unsupported Scala 2.12.2
+2022.11.21 16:38:52 INFO  No mtags for 2.12.2.
+2022.11.21 16:38:52 WARN  unsupported Scala 2.12.2
+2022.11.21 16:38:52 INFO  No mtags for 2.12.2.
+2022.11.21 16:38:52 WARN  unsupported Scala 2.12.2
+2022.11.21 16:38:53 INFO  No mtags for 2.12.2.
+2022.11.21 16:38:53 WARN  unsupported Scala 2.12.2
+2022.11.21 16:38:53 INFO  No mtags for 2.12.2.
+2022.11.21 16:38:53 WARN  unsupported Scala 2.12.2
+2022.11.21 16:38:53 INFO  No mtags for 2.12.2.
+2022.11.21 16:38:53 WARN  unsupported Scala 2.12.2
+2022.11.21 16:38:55 INFO  No mtags for 2.12.2.
+2022.11.21 16:38:55 WARN  unsupported Scala 2.12.2
+2022.11.21 16:39:06 INFO  No mtags for 2.12.2.
+2022.11.21 16:39:06 WARN  unsupported Scala 2.12.2
+2022.11.21 16:39:06 INFO  No mtags for 2.12.2.
+2022.11.21 16:39:06 WARN  unsupported Scala 2.12.2
+2022.11.21 16:39:07 INFO  No mtags for 2.12.2.
+2022.11.21 16:39:07 WARN  unsupported Scala 2.12.2
+2022.11.21 16:39:06 INFO  No mtags for 2.12.2.
+2022.11.21 16:39:06 WARN  unsupported Scala 2.12.2
+2022.11.21 16:39:07 INFO  No mtags for 2.12.2.
+2022.11.21 16:39:07 WARN  unsupported Scala 2.12.2
+2022.11.21 16:39:09 INFO  No mtags for 2.12.2.
+2022.11.21 16:39:09 WARN  unsupported Scala 2.12.2
+2022.11.21 16:39:10 INFO  compiling appformanagers-test (1 scala source)
+2022.11.21 16:39:10 INFO  time: compiled appformanagers-test in 0.94s
+2022.11.21 16:41:01 INFO  No mtags for 2.12.2.
+2022.11.21 16:41:01 WARN  unsupported Scala 2.12.2
+2022.11.21 16:41:01 INFO  No mtags for 2.12.2.
+2022.11.21 16:41:01 WARN  unsupported Scala 2.12.2
+2022.11.21 16:41:02 INFO  No mtags for 2.12.2.
+2022.11.21 16:41:02 WARN  unsupported Scala 2.12.2
+2022.11.21 16:41:02 INFO  No mtags for 2.12.2.
+2022.11.21 16:41:02 WARN  unsupported Scala 2.12.2
+2022.11.21 16:41:03 INFO  No mtags for 2.12.2.
+2022.11.21 16:41:03 WARN  unsupported Scala 2.12.2
+2022.11.21 16:41:03 INFO  No mtags for 2.12.2.
+2022.11.21 16:41:03 WARN  unsupported Scala 2.12.2
+2022.11.21 16:41:05 INFO  No mtags for 2.12.2.
+2022.11.21 16:41:05 WARN  unsupported Scala 2.12.2
+2022.11.21 16:41:05 INFO  No mtags for 2.12.2.
+2022.11.21 16:41:05 WARN  unsupported Scala 2.12.2
+2022.11.21 16:41:05 INFO  No mtags for 2.12.2.
+2022.11.21 16:41:05 WARN  unsupported Scala 2.12.2
+2022.11.21 16:41:08 INFO  No mtags for 2.12.2.
+2022.11.21 16:41:08 WARN  unsupported Scala 2.12.2
+2022.11.21 16:41:08 INFO  No mtags for 2.12.2.
+2022.11.21 16:41:08 WARN  unsupported Scala 2.12.2
+2022.11.21 16:41:10 INFO  No mtags for 2.12.2.
+2022.11.21 16:41:10 WARN  unsupported Scala 2.12.2
+2022.11.21 16:41:10 INFO  No mtags for 2.12.2.
+2022.11.21 16:41:10 WARN  unsupported Scala 2.12.2
+2022.11.21 16:41:13 INFO  No mtags for 2.12.2.
+2022.11.21 16:41:13 WARN  unsupported Scala 2.12.2
+2022.11.21 16:41:13 INFO  No mtags for 2.12.2.
+2022.11.21 16:41:13 WARN  unsupported Scala 2.12.2
+2022.11.21 16:41:13 INFO  No mtags for 2.12.2.
+2022.11.21 16:41:13 WARN  unsupported Scala 2.12.2
+2022.11.21 16:41:13 INFO  No mtags for 2.12.2.
+2022.11.21 16:41:13 WARN  unsupported Scala 2.12.2
+2022.11.21 16:41:14 INFO  No mtags for 2.12.2.
+2022.11.21 16:41:14 WARN  unsupported Scala 2.12.2
+2022.11.21 16:41:14 INFO  No mtags for 2.12.2.
+2022.11.21 16:41:14 WARN  unsupported Scala 2.12.2
+2022.11.21 16:41:14 INFO  No mtags for 2.12.2.
+2022.11.21 16:41:14 WARN  unsupported Scala 2.12.2
+2022.11.21 16:41:14 INFO  No mtags for 2.12.2.
+2022.11.21 16:41:14 WARN  unsupported Scala 2.12.2
+2022.11.21 16:41:15 INFO  No mtags for 2.12.2.
+2022.11.21 16:41:15 WARN  unsupported Scala 2.12.2
+2022.11.21 16:41:15 INFO  No mtags for 2.12.2.
+2022.11.21 16:41:15 WARN  unsupported Scala 2.12.2
+2022.11.21 16:41:16 INFO  No mtags for 2.12.2.
+2022.11.21 16:41:16 WARN  unsupported Scala 2.12.2
+2022.11.21 16:41:16 INFO  No mtags for 2.12.2.
+2022.11.21 16:41:16 WARN  unsupported Scala 2.12.2
+2022.11.21 16:41:19 INFO  No mtags for 2.12.2.
+2022.11.21 16:41:19 WARN  unsupported Scala 2.12.2
+2022.11.21 16:41:23 INFO  No mtags for 2.12.2.
+2022.11.21 16:41:23 WARN  unsupported Scala 2.12.2
+2022.11.21 16:41:27 INFO  No mtags for 2.12.2.
+2022.11.21 16:41:27 WARN  unsupported Scala 2.12.2
+2022.11.21 16:41:27 INFO  No mtags for 2.12.2.
+2022.11.21 16:41:27 WARN  unsupported Scala 2.12.2
+2022.11.21 16:41:29 INFO  No mtags for 2.12.2.
+2022.11.21 16:41:29 WARN  unsupported Scala 2.12.2
+2022.11.21 16:41:30 INFO  No mtags for 2.12.2.
+2022.11.21 16:41:30 WARN  unsupported Scala 2.12.2
+2022.11.21 16:41:30 INFO  No mtags for 2.12.2.
+2022.11.21 16:41:30 WARN  unsupported Scala 2.12.2
+2022.11.21 16:41:34 INFO  No mtags for 2.12.2.
+2022.11.21 16:41:34 WARN  unsupported Scala 2.12.2
+2022.11.21 16:41:36 INFO  No mtags for 2.12.2.
+2022.11.21 16:41:36 WARN  unsupported Scala 2.12.2
+2022.11.21 16:41:37 INFO  No mtags for 2.12.2.
+2022.11.21 16:41:37 WARN  unsupported Scala 2.12.2
+2022.11.21 16:41:37 INFO  No mtags for 2.12.2.
+2022.11.21 16:41:37 WARN  unsupported Scala 2.12.2
+2022.11.21 16:41:37 INFO  No mtags for 2.12.2.
+2022.11.21 16:41:37 WARN  unsupported Scala 2.12.2
+2022.11.21 16:41:39 INFO  No mtags for 2.12.2.
+2022.11.21 16:41:39 WARN  unsupported Scala 2.12.2
+2022.11.21 16:41:39 INFO  No mtags for 2.12.2.
+2022.11.21 16:41:39 WARN  unsupported Scala 2.12.2
+2022.11.21 16:41:39 INFO  No mtags for 2.12.2.
+2022.11.21 16:41:39 WARN  unsupported Scala 2.12.2
+2022.11.21 16:41:40 INFO  No mtags for 2.12.2.
+2022.11.21 16:41:40 WARN  unsupported Scala 2.12.2
+2022.11.21 16:41:42 INFO  No mtags for 2.12.2.
+2022.11.21 16:41:42 WARN  unsupported Scala 2.12.2
+2022.11.21 16:41:42 INFO  No mtags for 2.12.2.
+2022.11.21 16:41:42 WARN  unsupported Scala 2.12.2
+2022.11.21 16:41:44 INFO  No mtags for 2.12.2.
+2022.11.21 16:41:44 WARN  unsupported Scala 2.12.2
+2022.11.21 16:41:44 INFO  No mtags for 2.12.2.
+2022.11.21 16:41:44 WARN  unsupported Scala 2.12.2
+2022.11.21 16:41:48 INFO  No mtags for 2.12.2.
+2022.11.21 16:41:48 WARN  unsupported Scala 2.12.2
+2022.11.21 16:41:51 INFO  No mtags for 2.12.2.
+2022.11.21 16:41:51 WARN  unsupported Scala 2.12.2
+2022.11.21 16:41:51 INFO  No mtags for 2.12.2.
+2022.11.21 16:41:51 WARN  unsupported Scala 2.12.2
+2022.11.21 16:41:54 INFO  No mtags for 2.12.2.
+2022.11.21 16:41:54 WARN  unsupported Scala 2.12.2
+2022.11.21 16:41:59 INFO  No mtags for 2.12.2.
+2022.11.21 16:41:59 WARN  unsupported Scala 2.12.2
+2022.11.21 16:41:59 INFO  No mtags for 2.12.2.
+2022.11.21 16:41:59 WARN  unsupported Scala 2.12.2
+2022.11.21 16:41:59 INFO  No mtags for 2.12.2.
+2022.11.21 16:41:59 WARN  unsupported Scala 2.12.2
+2022.11.21 16:42:00 INFO  No mtags for 2.12.2.
+2022.11.21 16:42:00 WARN  unsupported Scala 2.12.2
+2022.11.21 16:42:03 INFO  No mtags for 2.12.2.
+2022.11.21 16:42:03 WARN  unsupported Scala 2.12.2
+2022.11.21 16:42:03 INFO  No mtags for 2.12.2.
+2022.11.21 16:42:03 WARN  unsupported Scala 2.12.2
+2022.11.21 16:42:08 INFO  compiling appformanagers-test (1 scala source)
+2022.11.21 16:42:08 INFO  time: compiled appformanagers-test in 0.28s
+2022.11.21 16:42:11 INFO  No mtags for 2.12.2.
+2022.11.21 16:42:11 WARN  unsupported Scala 2.12.2
+2022.11.21 16:42:13 INFO  No mtags for 2.12.2.
+2022.11.21 16:42:13 WARN  unsupported Scala 2.12.2
+2022.11.21 16:42:18 ERROR Failed to fetch mtags for 2.12.2
+Error downloading org.scalameta:mtags_2.12.2:0.11.9
+  not found: C:\Users\azazf\.ivy2\local\org.scalameta\mtags_2.12.2\0.11.9\ivys\ivy.xml
+  not found: https://repo1.maven.org/maven2/org/scalameta/mtags_2.12.2/0.11.9/mtags_2.12.2-0.11.9.pom
+  not found: https://oss.sonatype.org/content/repositories/public/org/scalameta/mtags_2.12.2/0.11.9/mtags_2.12.2-0.11.9.pom
+  not found: https://oss.sonatype.org/content/repositories/snapshots/org/scalameta/mtags_2.12.2/0.11.9/mtags_2.12.2-0.11.9.pom
+2022.11.21 16:42:18 WARN  unsupported Scala 2.12.2
+ноя 21, 2022 4:42:18 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 3205
+ноя 21, 2022 4:42:18 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 3206
+2022.11.21 16:42:18 INFO  No mtags for 2.12.2.
+2022.11.21 16:42:18 WARN  unsupported Scala 2.12.2
+ноя 21, 2022 4:42:18 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 3207
+ноя 21, 2022 4:42:18 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 3209
+2022.11.21 16:42:21 INFO  No mtags for 2.12.2.
+2022.11.21 16:42:21 WARN  unsupported Scala 2.12.2
+2022.11.21 16:42:21 INFO  No mtags for 2.12.2.
+2022.11.21 16:42:21 WARN  unsupported Scala 2.12.2
+2022.11.21 16:42:21 INFO  No mtags for 2.12.2.
+2022.11.21 16:42:21 WARN  unsupported Scala 2.12.2
+2022.11.21 16:42:22 INFO  No mtags for 2.12.2.
+2022.11.21 16:42:22 WARN  unsupported Scala 2.12.2
+2022.11.21 16:42:21 INFO  No mtags for 2.12.2.
+2022.11.21 16:42:21 WARN  unsupported Scala 2.12.2
+2022.11.21 16:42:22 INFO  No mtags for 2.12.2.
+2022.11.21 16:42:22 WARN  unsupported Scala 2.12.2
+2022.11.21 16:42:22 INFO  No mtags for 2.12.2.
+2022.11.21 16:42:22 WARN  unsupported Scala 2.12.2
+2022.11.21 16:42:23 INFO  No mtags for 2.12.2.
+2022.11.21 16:42:23 WARN  unsupported Scala 2.12.2
+2022.11.21 16:42:23 INFO  No mtags for 2.12.2.
+2022.11.21 16:42:23 WARN  unsupported Scala 2.12.2
+2022.11.21 16:42:23 INFO  No mtags for 2.12.2.
+2022.11.21 16:42:23 WARN  unsupported Scala 2.12.2
+2022.11.21 16:42:23 INFO  No mtags for 2.12.2.
+2022.11.21 16:42:23 WARN  unsupported Scala 2.12.2
+2022.11.21 16:42:23 INFO  No mtags for 2.12.2.
+2022.11.21 16:42:23 WARN  unsupported Scala 2.12.2
+2022.11.21 16:42:23 INFO  No mtags for 2.12.2.
+2022.11.21 16:42:23 WARN  unsupported Scala 2.12.2
+2022.11.21 16:42:23 INFO  No mtags for 2.12.2.
+2022.11.21 16:42:23 WARN  unsupported Scala 2.12.2
+2022.11.21 16:42:23 INFO  No mtags for 2.12.2.
+2022.11.21 16:42:23 WARN  unsupported Scala 2.12.2
+2022.11.21 16:42:24 INFO  No mtags for 2.12.2.
+2022.11.21 16:42:24 WARN  unsupported Scala 2.12.2
+2022.11.21 16:42:23 INFO  No mtags for 2.12.2.
+2022.11.21 16:42:23 WARN  unsupported Scala 2.12.2
+2022.11.21 16:42:24 INFO  No mtags for 2.12.2.
+2022.11.21 16:42:24 WARN  unsupported Scala 2.12.2
+2022.11.21 16:42:24 INFO  No mtags for 2.12.2.
+2022.11.21 16:42:24 WARN  unsupported Scala 2.12.2
+2022.11.21 16:42:23 INFO  No mtags for 2.12.2.
+2022.11.21 16:42:23 WARN  unsupported Scala 2.12.2
+2022.11.21 16:42:25 INFO  No mtags for 2.12.2.
+2022.11.21 16:42:25 WARN  unsupported Scala 2.12.2
+2022.11.21 16:42:25 INFO  No mtags for 2.12.2.
+2022.11.21 16:42:25 WARN  unsupported Scala 2.12.2
+2022.11.21 16:42:25 INFO  No mtags for 2.12.2.
+2022.11.21 16:42:25 WARN  unsupported Scala 2.12.2
+2022.11.21 16:42:27 INFO  No mtags for 2.12.2.
+2022.11.21 16:42:27 WARN  unsupported Scala 2.12.2
+2022.11.21 16:42:27 INFO  No mtags for 2.12.2.
+2022.11.21 16:42:27 WARN  unsupported Scala 2.12.2
+2022.11.21 16:42:27 INFO  No mtags for 2.12.2.
+2022.11.21 16:42:27 WARN  unsupported Scala 2.12.2
+2022.11.21 16:42:28 INFO  No mtags for 2.12.2.
+2022.11.21 16:42:28 WARN  unsupported Scala 2.12.2
+2022.11.21 16:42:29 INFO  compiling appformanagers-test (1 scala source)
+2022.11.21 16:42:29 INFO  time: compiled appformanagers-test in 0.28s
+2022.11.21 16:42:30 INFO  No mtags for 2.12.2.
+2022.11.21 16:42:30 WARN  unsupported Scala 2.12.2
+2022.11.21 16:42:32 INFO  No mtags for 2.12.2.
+2022.11.21 16:42:32 WARN  unsupported Scala 2.12.2
+2022.11.21 16:42:32 INFO  No mtags for 2.12.2.
+2022.11.21 16:42:32 WARN  unsupported Scala 2.12.2
+2022.11.21 16:42:35 INFO  No mtags for 2.12.2.
+2022.11.21 16:42:35 WARN  unsupported Scala 2.12.2
+2022.11.21 16:42:37 INFO  No mtags for 2.12.2.
+2022.11.21 16:42:37 WARN  unsupported Scala 2.12.2
+2022.11.21 16:42:39 INFO  No mtags for 2.12.2.
+2022.11.21 16:42:39 WARN  unsupported Scala 2.12.2
+2022.11.21 16:42:39 INFO  No mtags for 2.12.2.
+2022.11.21 16:42:39 WARN  unsupported Scala 2.12.2
+2022.11.21 16:42:40 INFO  compiling appformanagers-test (1 scala source)
+2022.11.21 16:42:40 INFO  time: compiled appformanagers-test in 0.28s
+2022.11.21 16:42:49 INFO  No mtags for 2.12.2.
+2022.11.21 16:42:49 WARN  unsupported Scala 2.12.2
+2022.11.21 16:42:49 INFO  No mtags for 2.12.2.
+2022.11.21 16:42:49 WARN  unsupported Scala 2.12.2
+2022.11.21 16:42:49 INFO  No mtags for 2.12.2.
+2022.11.21 16:42:49 WARN  unsupported Scala 2.12.2
+2022.11.21 16:42:49 INFO  No mtags for 2.12.2.
+2022.11.21 16:42:49 WARN  unsupported Scala 2.12.2
+2022.11.21 16:42:53 INFO  No mtags for 2.12.2.
+2022.11.21 16:42:53 WARN  unsupported Scala 2.12.2
+2022.11.21 16:42:53 INFO  No mtags for 2.12.2.
+2022.11.21 16:42:53 WARN  unsupported Scala 2.12.2
+2022.11.21 16:42:54 INFO  No mtags for 2.12.2.
+2022.11.21 16:42:54 WARN  unsupported Scala 2.12.2
+2022.11.21 16:42:55 INFO  No mtags for 2.12.2.
+2022.11.21 16:42:55 WARN  unsupported Scala 2.12.2
+2022.11.21 16:42:55 INFO  No mtags for 2.12.2.
+2022.11.21 16:42:55 WARN  unsupported Scala 2.12.2
+2022.11.21 16:42:55 INFO  No mtags for 2.12.2.
+2022.11.21 16:42:55 WARN  unsupported Scala 2.12.2
+2022.11.21 16:42:56 INFO  No mtags for 2.12.2.
+2022.11.21 16:42:56 WARN  unsupported Scala 2.12.2
+2022.11.21 16:42:55 INFO  No mtags for 2.12.2.
+2022.11.21 16:42:55 WARN  unsupported Scala 2.12.2
+2022.11.21 16:42:56 INFO  No mtags for 2.12.2.
+2022.11.21 16:42:56 WARN  unsupported Scala 2.12.2
+2022.11.21 16:42:57 INFO  compiling appformanagers-test (1 scala source)
+2022.11.21 16:42:57 INFO  No mtags for 2.12.2.
+2022.11.21 16:42:57 WARN  unsupported Scala 2.12.2
+2022.11.21 16:42:58 INFO  No mtags for 2.12.2.
+2022.11.21 16:42:58 WARN  unsupported Scala 2.12.2
+2022.11.21 16:42:57 INFO  time: compiled appformanagers-test in 0.98s
+2022.11.21 16:45:27 INFO  No mtags for 2.12.2.
+2022.11.21 16:45:27 WARN  unsupported Scala 2.12.2
+2022.11.21 16:45:45 INFO  No mtags for 2.12.2.
+2022.11.21 16:45:45 WARN  unsupported Scala 2.12.2
+2022.11.21 21:19:02 INFO  shutting down Metals
+2022.11.21 21:19:04 INFO  Shut down connection with build server.
+2022.11.21 21:19:04 INFO  Shut down connection with build server.
+2022.11.21 21:19:04 INFO  Shut down connection with build server.
+2022.11.21 23:34:37 INFO  tracing is disabled for protocol LSP, to enable tracing of incoming and outgoing JSON messages create an empty file at c:\MyProjects\AppForManagers\.metals\lsp.trace.json or C:\Users\azazf\AppData\Local\scalameta\metals\cache\lsp.trace.json
+2022.11.21 23:34:37 INFO  logging to file C:\MyProjects\AppForManagers\.metals\metals.log
