@@ -1,9 +1,12 @@
 logs
 project/project
 project/target
-/.bloop
-/.metals
+project/.bloop
+project/metals.sbt
 target
+.bloop
+.metals
+.vscode
 tmp
 .history
 dist
