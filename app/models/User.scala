@@ -3,14 +3,14 @@ package models
 
 import cats.data.{EitherNel, EitherT}
 import cats.effect.IO
-import io.chrisdavenport.fuuid.FUUID
+import java.util.UUID
 import models.Email.Email
 import models.Id.Id
 import models.Name.Name
 import models.PasswordHash.PasswordHash
 import org.mindrot.jbcrypt.BCrypt
-import cats.implicits.{catsSyntaxEitherId, catsSyntaxTuple2Parallel, catsSyntaxTuple3Parallel}
-import libs.EitherNelT.EitherNelT
+import cats.implicits._
+import cats.data.ValidatedNec
 
 trait User {
   def id: Id
@@ -38,11 +38,9 @@ object Worker {
     new Worker(id, name, passwordHash, Array.empty)
   }
 
-  def apply(name: String, password: String): EitherNelT[IO, String, Worker] = EitherT {
-    Id().map { id =>
-      (Name(name), PasswordHash(password))
-        .parMapN(new Worker(id, _, _, Array.empty))
-    }
+  def apply(name: String, password: String, seed: Array[Byte]): ValidatedNec[String, Worker] =  {
+    (Name(name), PasswordHash(password))
+        .mapN(Worker(Id(seed), _, _, Array.empty))
   }
 }
 
@@ -51,11 +49,9 @@ object UnverifiedManager {
     new UnverifiedManager(id, name, email, passwordHash, confirmationToken)
   }
 
-  def apply(name: String, email: String, password: String, confirmationToken: String): EitherNelT[IO, String, UnverifiedManager] = EitherT {
-    Id().map { id =>
-      (Name(name), Email(email), PasswordHash(password))
-        .parMapN(new UnverifiedManager(id, _, _, _, confirmationToken))
-    }
+  def apply(name: String, email: String, password: String, confirmationToken: String, seed: Array[Byte]): ValidatedNec[String, UnverifiedManager] = {
+    (Name(name), Email(email), PasswordHash(password))
+        .mapN(UnverifiedManager(Id(seed), _, _, _, confirmationToken))
   }
 }
 
@@ -64,11 +60,9 @@ object VerifiedManager {
     new VerifiedManager(id, name, email, passwordHash, workers)
   }
 
-  def apply(name: String, email: String, password: String): EitherNelT[IO, String, VerifiedManager] = EitherT {
-    Id().map { id =>
-      (Name(name), Email(email), PasswordHash(password))
-        .parMapN(new VerifiedManager(id, _, _, _, Array.empty))
-    }
+  def apply(name: String, email: String, password: String, seed: Array[Byte]): ValidatedNec[String, VerifiedManager] = {
+    (Name(name), Email(email), PasswordHash(password))
+        .mapN(VerifiedManager(Id(seed), _, _, _, Array.empty))
   }
 }
 
@@ -76,8 +70,8 @@ object Id {
 
   type Id = String
 
-  def apply(): IO[Id] = {
-    FUUID.randomFUUID[IO].map(_.show)
+  def apply(seed: Array[Byte]): Id = {
+    UUID.nameUUIDFromBytes(seed).toString()
   }
 }
 
@@ -85,10 +79,10 @@ object Name {
 
   type Name = String
 
-  def apply(x: String): EitherNel[String, Name] = {
+  def apply(x: String): ValidatedNec[String, Name] = {
     x match {
-      case c if c.length > 50 | c.length < 2 => "Name length must be less 50 and more 1".leftNel
-      case _ =>  x.rightNel
+      case c if c.length > 50 | c.length < 2 => "Name length must be less 50 and more 1".invalidNec 
+      case _ =>  x.validNec 
     }
   }
 }
@@ -97,10 +91,10 @@ object PasswordHash {
 
   type PasswordHash = String
 
-  def apply(password: String): EitherNel[String, PasswordHash] = {
+  def apply(password: String): ValidatedNec[String, PasswordHash] = {
     password match {
-      case c if c.length > 50 | c.length < 5 => "Password length must be less 50 and more 4".leftNel
-      case _ =>  BCrypt.hashpw(password, BCrypt.gensalt()).rightNel
+      case c if c.length > 50 | c.length < 5 => "Password length must be less 50 and more 4".invalidNec
+      case _ =>  BCrypt.hashpw(password, BCrypt.gensalt()).validNec
     }
   }
 
@@ -113,10 +107,10 @@ object Email {
 
   type Email = String
 
-  def apply(email: String): EitherNel[String, Email] = {
+  def apply(email: String): ValidatedNec[String, Email] = {
     email match {
-      case c if """(\w+)@([\w.]+)""".r.unapplySeq(c).isEmpty => "Email not valid".leftNel
-      case _ =>  email.rightNel
+      case c if """(\w+)@([\w.]+)""".r.unapplySeq(c).isEmpty => "Email not valid".invalidNec
+      case _ =>  email.validNec
     }
   }
 }

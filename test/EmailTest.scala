@@ -2,12 +2,12 @@ import models.Email
 import org.scalatest.freespec.AsyncFreeSpec
 
 class EmailTest extends AsyncFreeSpec {
-  "EmailTestNotValid" in {
-    assert(Email("test").isLeft)
-    assert(Email("t es t@gmailcom").isLeft)
+  "EmailTestInvalid" in {
+    assert(Email("test").isInvalid)
+    assert(Email("t es t@gmailcom").isInvalid)
   }
 
   "EmailTestValid" in {
-    assert(Email("test@gmail.com").isRight)
+    assert(Email("test@gmail.com").isValid)
   }
 }

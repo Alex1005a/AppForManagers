@@ -4,51 +4,66 @@ import cats.data.Kleisli
 import cats.effect.{ContextShift, IO}
 import cats.implicits.catsSyntaxEitherId
 import controllers.{AuthDto, ManagerDto, WorkerDto}
-import libs.Env
+import libs.{Env, Process}
 import models.Id.Id
 import models.PasswordHash.PasswordHash
 import models.{PasswordHash, UnverifiedManager, User, VerifiedManager}
 import repositories.UserRepository
 import scala.concurrent.ExecutionContext
+import cats.Monad
+import cats.effect.Concurrent
+import cats.syntax.all._
+import scala.util.Random
+
 
 object AccountService {
 
-  implicit val cs: ContextShift[IO] = IO.contextShift(ExecutionContext.global)
+  implicit class ExtendedRandom(ran: scala.util.Random) {
+  def nextByte = (ran.nextInt(256) - 128).toByte
+}
 
-  def createUser(user: User): Kleisli[IO, Env, Either[String, Id]] = Kleisli {
-    (env: Env) =>
+
+  def createUser[F[_] : Monad](user: User)
+  (implicit userRepo: UserRepository[F], process: Process[F]): Kleisli[F, Env[F], Either[String, Id]] = Kleisli {
+    (env: Env[F]) =>
       user match {
         case unverifiedManager: UnverifiedManager =>
           for {
-            j <- env.email.sendEmail(unverifiedManager.email, "http://localhost:9000/account/" + unverifiedManager.confirmationToken, "Subject").start
+            j <- process.fork(env.email.sendEmail(unverifiedManager.email, 
+                  "http://localhost:9000/account/" + unverifiedManager.confirmationToken, "Subject"))
             id <- env.userRepository.create(user)
-            res <- j.join.attempt
-            _ <- if(res.isLeft) env.userRepository.deleteUnverifiedManager(unverifiedManager)
-            else IO.unit
-          } yield res.left.map(_.getMessage).map(_ =>id)
+            res <- process.await(j)
+          } yield Right(id)
 
-        case _ => env.userRepository.create(user).map(Right(_))
+        case _ => for {
+          k <- env.userRepository.create(user)
+        } yield Right(k)
       }
   }
 
-  def verifyManager(confirmationToken: String): Kleisli[IO, UserRepository[IO], Either[String, String]] = Kleisli {
-    (repo: UserRepository[IO]) => {
+  def verifyManager[F[_]:  Monad](confirmationToken: String)
+  (implicit userRepo: UserRepository[F], process: Process[F]): Kleisli[F, UserRepository[F], Either[String, String]] = Kleisli {
+    (repo: UserRepository[F]) => {
       repo.getUnverifiedManagerByToken(confirmationToken).value.flatMap {
         case Some(v) =>
-          val verifiedManagerIO = VerifiedManager(v.name, v.email, v.passwordHash).toOption.value.map(_.get)
+   
           for {
-            _ <- repo.deleteUnverifiedManager(v).start
-            verifiedManager <- verifiedManagerIO
-            id <- repo.create(verifiedManager)
-          } yield s"Manager with $id verified successfully".asRight[String]
+            _ <- process.fork(repo.deleteUnverifiedManager(v))
+            randArr <- Monad[F].pure(Array.fill(20)(scala.util.Random.nextByte))
+            idF <- Monad[F].pure(VerifiedManager(v.name, v.email, v.passwordHash, randArr).map(repo.create))
+            id <- idF.toEither match {
+              case Left(nonEmptyStrings) => Monad[F].pure(nonEmptyStrings.head.asLeft[String])
+              case Right(idF) => idF.map(_.asRight[String])
+            }
+          } yield id
 
-        case None => IO("Manager not find".asLeft[String])
+        case None => Monad[F].pure("Manager not find".asLeft[String])
       }
     }
   }
 
-  def authorize(user: AuthDto): Kleisli[IO, Env, Either[String, String]] = Kleisli {
-    (env: Env) => {
+  def authorize[F[_] : Monad](user: AuthDto)(implicit U: UserRepository[F]): Kleisli[F, Env[F], Either[String, String]] = Kleisli {
+    (env: Env[F]) => {
       user match {
         case managerDto: ManagerDto =>
           for {
@@ -77,7 +92,7 @@ object AccountService {
   }
 
   private def checkPassword(password: String, hash: PasswordHash): Either[String, _] = {
-    if(PasswordHash.checkPassword(password, hash)) Right()
+    if(PasswordHash.checkPassword(password, hash)) Right((): Unit)
     else "Password not correct".asLeft
   }
 }

@@ -6,9 +6,8 @@ import models.Id.Id
 case class Invite(id: Id, managerId: Id, workerId: Id)
 
 object Invite {
-  def apply(managerId: Id, workerId: Id): IO[Invite] = {
-    Id().map { id =>
-      Invite(id, managerId, workerId)
-    }
+  //private def apply(id: Id, managerId: Id, workerId: Id): Iv
+  def apply(managerId: Id, workerId: Id, seed: Array[Byte]): Invite = {
+    Invite(Id(seed), managerId, workerId)
   }
 }

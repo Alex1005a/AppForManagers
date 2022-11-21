@@ -22,6 +22,10 @@ trait InviteRepository[F[_]] {
   def delete(invite: Invite): F[Unit]
 }
 
+object InviteRepository {
+  def apply[F[_]](implicit F: InviteRepository[F]): InviteRepository[F] = F
+}
+
 class InviteInMemoryRepository extends InviteRepository[IO] {
   private def getBy[A](function: ListBuffer[Invite] => A): IO[A] = {
     for {

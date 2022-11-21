@@ -32,6 +32,10 @@ trait UserRepository[F[_]] {
 
 }
 
+object UserRepository {
+  def apply[F[_]](implicit F: UserRepository[F]): UserRepository[F] = F
+}
+
 class UserInMemoryRepository extends UserRepository[IO] {
 
   private def update[T <: User](user: T, listUserIO: IO[Ref[IO, ListBuffer[T]]]): IO[Boolean] = for {

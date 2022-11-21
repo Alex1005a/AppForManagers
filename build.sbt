@@ -9,7 +9,7 @@ resolvers += "scalaz-bintray" at "https://dl.bintray.com/scalaz/releases"
 resolvers += "Akka Snapshot Repository" at "https://repo.akka.io/snapshots/"
 
 scalacOptions += "-Ypartial-unification"
-scalaVersion := "2.12.2"
+scalaVersion := "2.12.17"
 
 libraryDependencies ++= Seq( jdbc , ehcache , ws , specs2 % Test , guice )
 libraryDependencies += "org.scalamock" %% "scalamock" % "4.4.0" % Test

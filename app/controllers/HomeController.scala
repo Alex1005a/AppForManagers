@@ -6,9 +6,10 @@ import libs.Env
 import play.api.libs.json.Json
 import javax.inject._
 import play.api.mvc._
+import cats.effect.{IO}
 
 @Singleton
-class HomeController @Inject()(cc: ControllerComponents, env: Env) extends AbstractController(cc) {
+class HomeController @Inject()(cc: ControllerComponents, env: Env[IO]) extends AbstractController(cc) {
 
   def index: Action[AnyContent] = Action { implicit request =>
     val user = env.auth.authenticate(request.headers.get("Authorization").getOrElse(""))
