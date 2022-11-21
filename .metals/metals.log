@@ -34493,3 +34493,24 @@ Error downloading org.scalameta:mtags_2.12.2:0.11.9
 2022.11.22 00:17:02 INFO  compiling appformanagers (3 scala sources)
 2022.11.22 00:17:05 WARN  there were three feature warnings; re-run with -feature for details
 2022.11.22 00:17:05 INFO  time: compiled appformanagers in 2.18s
+2022.11.22 00:23:16 ERROR Failed to fetch mtags for 2.12.2
+Error downloading org.scalameta:mtags_2.12.2:0.11.9
+  not found: C:\Users\azazf\.ivy2\local\org.scalameta\mtags_2.12.2\0.11.9\ivys\ivy.xml
+  not found: https://repo1.maven.org/maven2/org/scalameta/mtags_2.12.2/0.11.9/mtags_2.12.2-0.11.9.pom
+  not found: https://oss.sonatype.org/content/repositories/public/org/scalameta/mtags_2.12.2/0.11.9/mtags_2.12.2-0.11.9.pom
+  not found: https://oss.sonatype.org/content/repositories/snapshots/org/scalameta/mtags_2.12.2/0.11.9/mtags_2.12.2-0.11.9.pom
+2022.11.22 00:23:16 WARN  unsupported Scala 2.12.2
+2022.11.22 00:25:41 INFO  No mtags for 2.12.2.
+2022.11.22 00:25:41 WARN  unsupported Scala 2.12.2
+2022.11.22 00:25:42 INFO  No mtags for 2.12.2.
+2022.11.22 00:25:42 WARN  unsupported Scala 2.12.2
+2022.11.22 00:25:43 INFO  No mtags for 2.12.2.
+2022.11.22 00:25:43 WARN  unsupported Scala 2.12.2
+2022.11.22 00:25:45 INFO  No mtags for 2.12.2.
+2022.11.22 00:25:45 WARN  unsupported Scala 2.12.2
+2022.11.22 00:25:46 INFO  No mtags for 2.12.2.
+2022.11.22 00:25:46 WARN  unsupported Scala 2.12.2
+2022.11.22 00:25:46 INFO  No mtags for 2.12.2.
+2022.11.22 00:25:46 WARN  unsupported Scala 2.12.2
+2022.11.22 00:25:47 INFO  No mtags for 2.12.2.
+2022.11.22 00:25:47 WARN  unsupported Scala 2.12.2

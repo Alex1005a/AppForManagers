@@ -1,8 +1,8 @@
 logs
 project/project
 project/target
-project/.bloop
-project/.metals
+/.bloop
+/.metals
 target
 tmp
 .history
